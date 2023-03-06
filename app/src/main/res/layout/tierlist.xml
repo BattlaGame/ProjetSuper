@@ -12,30 +12,30 @@
             android:id="@+id/S"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/TierS"></ImageView>
+            android:src="@drawable/tier_s"></ImageView>
 
         <ImageView
             android:id="@+id/A"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/TierA"></ImageView>
+            android:src="@drawable/tier_a"></ImageView>
 
         <ImageView
             android:id="@+id/B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/TierB"></ImageView>
+            android:src="@drawable/tier_b"></ImageView>
 
         <ImageView
             android:id="@+id/C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/TierC"></ImageView>
+            android:src="@drawable/tier_c"></ImageView>
 
         <ImageView
             android:id="@+id/D"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/TierD"></ImageView>
+            android:src="@drawable/tier_d"></ImageView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

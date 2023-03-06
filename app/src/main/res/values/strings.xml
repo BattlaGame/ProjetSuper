@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ProjetSuper</string>
     <string name="titre_liste">Liste des Super-héros</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="force">Force</string>
+    <string name="vitesse">Vitesse</string>
+    <string name="durabilite">Durabilité</string>
+    <string name="pouvoir">Pouvoir</string>
+    <string name="combat">Combat</string>
+
 </resources>
