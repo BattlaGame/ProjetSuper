@@ -4,11 +4,11 @@ import org.json.JSONArray;
 
 public class hero {
 
-    private int id;
-    private String nom;
-    private int intelligence, force, vitesse, durabilite, pouvoir, combat;
-    private String nom_complet, editeur, type, genre, race, travaille, image;
-    private JSONArray poids, taille;
+    protected int id;
+    protected String nom;
+    protected int intelligence, force, vitesse, durabilite, pouvoir, combat;
+    protected String nom_complet, editeur, type, genre, race, travail, image;
+    protected JSONArray poids, taille;
 
     public hero(int id, String nom, int intelligence, int force, int vitesse,
                 int durabilite, int pouvoir, int combat, String nom_complet,
@@ -27,11 +27,12 @@ public class hero {
         this.type = type;
         this.genre = genre;
         this.race = race;
-        this.travaille = travaille;
+        this.travail = travail;
         this.image = image;
         this.poids = poids;
         this.taille = taille;
     }
+    public hero(){}
 
     public int getId() {
         return id;
@@ -137,12 +138,12 @@ public class hero {
         this.race = race;
     }
 
-    public String getTravaille() {
-        return travaille;
+    public String getTravail() {
+        return travail;
     }
 
-    public void setTravaille(String travaille) {
-        this.travaille = travaille;
+    public void setTravail(String travail) {
+        this.travail = travail;
     }
 
     public String getImage() {

@@ -18,7 +18,7 @@ import java.net.URLEncoder;
 
 public class RequetteAPI (String idHero){
 
-    Hero hero = new hero;
+    hero hero = new hero();
 
     private class RequestTask extends AsyncTask<String, Void, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
@@ -59,26 +59,26 @@ public class RequetteAPI (String idHero){
             String response = "";
             String jsocod = jso.getString("response");
             if (jsocod == "success") { // ...
-                hero.nom = jso.getString("name");
+                hero.setNom(jso.getString("name"));
 
                 JSONObject jsostats = jso.getJSONObject("powerstats");
-                hero.intelligence = jsostats.getString("intelligence");
-                hero.force = jsostats.getString("strength");
-                hero.vitesse = jsostats.getString("speed");
-                hero.durabilite = jsostats.getString("durability");
-                hero.pouvoir = jsostats.getString("power");
-                hero.combat = jsostats.getString("combat");
+                hero.setIntelligence(jsostats.getInt("intelligence"));
+                hero.setForce(jsostats.getInt("strength"));
+                hero.setVitesse(jsostats.getInt("speed"));
+                hero.setDurabilite(jsostats.getInt("durability"));
+                hero.setPouvoir(jsostats.getInt("power"));
+                hero.setCombat(jsostats.getInt("combat"));
 
                 JSONObject jsobio = jso.getJSONObject("biography");
-                hero.nom_complet = jsobio.getString("full-name");
-                hero.editeur = jsobio.getString("publisher");
-                hero.type = jsobio.getString("alignment");
+                hero.setNom_complet(jsobio.getString("full-name"));
+                hero.setEditeur(jsobio.getString("publisher"));
+                hero.setType(jsobio.getString("alignment"));
 
                 JSONObject jsoapparence = jso.getJSONObject("appearance");
-                hero.genre = jsoapparence.getString("gender");
-                hero.race = jsoapparence.getString("race");
-                hero.taille = jsoapparence.getJSONArray("height");
-                hero.poids = jsoapparence.getJSONArray("weight");
+                hero.setGenre(jsoapparence.getString("gender"));
+                hero.setRace(jsoapparence.getString("race"));
+                hero.setTaille(jsoapparence.getJSONArray("height"));
+                hero.setPoids(jsoapparence.getJSONArray("weight"));
 
                 JSONObject jsotravail = jso.getJSONObject("work");
                 hero.travail = jsotravail.getString("occupation");
@@ -89,7 +89,7 @@ public class RequetteAPI (String idHero){
             } else { // ...
                 response ="\n Code erreur retourné par le serveur :";
                 response += "\n\n \t Code = " + jsocod;
-                response += "\n\n \t Message : " + jso.getString("message");
+                response += "\n\n \t Message : " + jso.getString("error");
             }
             return response;
         }
