@@ -3,7 +3,6 @@ package com.example.projetsuper;
 
 import android.os.AsyncTask;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ import java.net.URLEncoder;
 
 public class RequetteAPI (String idHero){
 
-    hero hero = new hero();
+    Hero hero = new Hero();
 
     private class RequestTask extends AsyncTask<String, Void, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)

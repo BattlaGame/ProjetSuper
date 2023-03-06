@@ -2,7 +2,7 @@ package com.example.projetsuper;
 
 import org.json.JSONArray;
 
-public class hero {
+public class Hero {
 
     protected int id;
     protected String nom;
@@ -10,7 +10,7 @@ public class hero {
     protected String nom_complet, editeur, type, genre, race, travail, image;
     protected JSONArray poids, taille;
 
-    public hero(int id, String nom, int intelligence, int force, int vitesse,
+    public Hero(int id, String nom, int intelligence, int force, int vitesse,
                 int durabilite, int pouvoir, int combat, String nom_complet,
                 String editeur, String type, String genre, String race, String travaille,
                 String image, JSONArray poids, JSONArray taille) {
@@ -32,7 +32,7 @@ public class hero {
         this.poids = poids;
         this.taille = taille;
     }
-    public hero(){}
+    public Hero(){}
 
     public int getId() {
         return id;
