@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProjetSuper</string>
+    <string name="titre_liste">Liste des Super-héros</string>
 </resources>
