@@ -20,6 +20,7 @@ public class RequetteAPI {
 
     Hero hero = new Hero();
     String idHero;
+    RequestTask rt = new RequestTask();
     public RequetteAPI(String id){
         this.idHero = id;
     }
@@ -113,6 +114,7 @@ public class RequetteAPI {
     }
 
     public Hero getHero(){
+        rt.execute();
         return hero;
     }
 }
