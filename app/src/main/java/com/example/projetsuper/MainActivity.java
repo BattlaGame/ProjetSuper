@@ -19,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void hero(View v){
         Intent ia = new Intent (MainActivity.this, AffichageHero.class);
+        startActivityForResult(ia, 0);
     }
 }
