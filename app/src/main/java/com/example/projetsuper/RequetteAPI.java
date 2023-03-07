@@ -92,9 +92,10 @@ public class RequetteAPI {
                 hero.image = jsoimage.getString("url");
 
             } else { // ...
-                response ="\n Code erreur retourné par le serveur :";
+
+                /*response ="\n Code erreur retourné par le serveur :";
                 response += "\n\n \t Code = " + jsocod;
-                response += "\n\n \t Message : " + jso.getString("error");
+                response += "\n\n \t Message : " + jso.getString("error");*/
             }
             return response;
         }
@@ -114,7 +115,7 @@ public class RequetteAPI {
     }
 
     public Hero getHero(){
-        rt.execute();
+        rt.execute(idHero);
         return hero;
     }
 }
