@@ -39,8 +39,11 @@ public class AffichageHero extends AppCompatActivity {
         hero = rAPI.getHero();
 
         nom.setText(hero.getNom());
-
-        //
+        nom_complet.setText(hero.getNom_complet());
+        intelligence.setProgress(hero.getIntelligence());
+        force.setProgress(55);
+        vitesse.setProgress(75);
+        pouvoir.setProgress(100);
 
     }
 }

@@ -102,15 +102,15 @@ public class RequetteAPI {
         // Méthode appelée lorsque la tâche de fond sera terminée
         //  Affiche le résultat
         protected void onPostExecute(String result) {
-            /*JSONObject toDecode = null;
+            JSONObject toDecode = null;
             try {
                 toDecode = new JSONObject(result);
-                tResultat.setText(decodeJSON(toDecode));
+                decodeJSON(toDecode);
             } catch (Exception e) {
-                Intent myIntent = new Intent(AffichageHero.class, PageErreur.class);
-                startActivityForResult(myIntent, 0);
-                tResultat.setText("error parsing JSON");
-            }*/
+                //Intent myIntent = new Intent(AffichageHero.class, PageErreur.class);
+                //startActivityForResult(myIntent, 0);
+                //tResultat.setText("error parsing JSON");
+            }
         }
     }
 
