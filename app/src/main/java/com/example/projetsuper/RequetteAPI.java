@@ -1,6 +1,7 @@
 package com.example.projetsuper;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
@@ -15,9 +16,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class RequetteAPI (String idHero){
+public class RequetteAPI {
 
     Hero hero = new Hero();
+    String idHero;
+    public RequetteAPI(String id){
+        this.idHero = id;
+    }
 
     private class RequestTask extends AsyncTask<String, Void, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
@@ -95,13 +100,19 @@ public class RequetteAPI (String idHero){
         // Méthode appelée lorsque la tâche de fond sera terminée
         //  Affiche le résultat
         protected void onPostExecute(String result) {
-            JSONObject toDecode = null;
+            /*JSONObject toDecode = null;
             try {
                 toDecode = new JSONObject(result);
                 tResultat.setText(decodeJSON(toDecode));
             } catch (Exception e) {
+                Intent myIntent = new Intent(AffichageHero.class, PageErreur.class);
+                startActivityForResult(myIntent, 0);
                 tResultat.setText("error parsing JSON");
-            }
+            }*/
         }
+    }
+
+    public Hero getHero(){
+        return hero;
     }
 }
