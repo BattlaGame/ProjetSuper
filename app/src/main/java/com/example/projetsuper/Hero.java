@@ -32,7 +32,8 @@ public class Hero {
         this.poids = poids;
         this.taille = taille;
     }
-    public Hero(){}
+    public Hero(){
+    }
 
     public int getId() {
         return id;

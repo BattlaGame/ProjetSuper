@@ -28,6 +28,7 @@ public class RequetteAPI {
     private class RequestTask extends AsyncTask<String, Void, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
         //  lance la requète
+        Hero hero_bis = new Hero();
         protected String doInBackground(String... idHero) {
             String response = requete(idHero[0]);
             return response;
@@ -60,44 +61,44 @@ public class RequetteAPI {
             }
             return response;
         }
-        private String decodeJSON(JSONObject jso) throws Exception {
-            String response = "";
+        private Hero decodeJSON(JSONObject jso) throws Exception {
+            Hero h1 = new Hero();
             String jsocod = jso.getString("response");
-            if (jsocod == "success") { // ...
-                hero.setNom(jso.getString("name"));
+            if (jsocod == "success") {
+                h1.setNom(jso.getString("name"));
 
                 JSONObject jsostats = jso.getJSONObject("powerstats");
-                hero.setIntelligence(jsostats.getInt("intelligence"));
-                hero.setForce(jsostats.getInt("strength"));
-                hero.setVitesse(jsostats.getInt("speed"));
-                hero.setDurabilite(jsostats.getInt("durability"));
-                hero.setPouvoir(jsostats.getInt("power"));
-                hero.setCombat(jsostats.getInt("combat"));
+                h1.setIntelligence(jsostats.getInt("intelligence"));
+                h1.setForce(jsostats.getInt("strength"));
+                h1.setVitesse(jsostats.getInt("speed"));
+                h1.setDurabilite(jsostats.getInt("durability"));
+                h1.setPouvoir(jsostats.getInt("power"));
+                h1.setCombat(jsostats.getInt("combat"));
 
                 JSONObject jsobio = jso.getJSONObject("biography");
-                hero.setNom_complet(jsobio.getString("full-name"));
-                hero.setEditeur(jsobio.getString("publisher"));
-                hero.setType(jsobio.getString("alignment"));
+                h1.setNom_complet(jsobio.getString("full-name"));
+                h1.setEditeur(jsobio.getString("publisher"));
+                h1.setType(jsobio.getString("alignment"));
 
                 JSONObject jsoapparence = jso.getJSONObject("appearance");
-                hero.setGenre(jsoapparence.getString("gender"));
-                hero.setRace(jsoapparence.getString("race"));
-                hero.setTaille(jsoapparence.getJSONArray("height"));
-                hero.setPoids(jsoapparence.getJSONArray("weight"));
+                h1.setGenre(jsoapparence.getString("gender"));
+                h1.setRace(jsoapparence.getString("race"));
+                h1.setTaille(jsoapparence.getJSONArray("height"));
+                h1.setPoids(jsoapparence.getJSONArray("weight"));
 
                 JSONObject jsotravail = jso.getJSONObject("work");
-                hero.travail = jsotravail.getString("occupation");
+                h1.setTravail(jsotravail.getString("occupation"));
 
                 JSONObject jsoimage = jso.getJSONObject("image");
-                hero.image = jsoimage.getString("url");
+                h1.setImage(jsoimage.getString("url"));
 
-            } else { // ...
+           } else {
 
                 /*response ="\n Code erreur retourné par le serveur :";
                 response += "\n\n \t Code = " + jsocod;
                 response += "\n\n \t Message : " + jso.getString("error");*/
             }
-            return response;
+            return h1;
         }
         // Méthode appelée lorsque la tâche de fond sera terminée
         //  Affiche le résultat
@@ -105,13 +106,14 @@ public class RequetteAPI {
             JSONObject toDecode = null;
             try {
                 toDecode = new JSONObject(result);
-                decodeJSON(toDecode);
+                this.hero_bis = decodeJSON(toDecode);
             } catch (Exception e) {
                 //Intent myIntent = new Intent(AffichageHero.class, PageErreur.class);
                 //startActivityForResult(myIntent, 0);
                 //tResultat.setText("error parsing JSON");
             }
         }
+
     }
 
     public Hero getHero(){

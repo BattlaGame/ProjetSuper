@@ -1,7 +1,6 @@
 package com.example.projetsuper;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,7 +17,7 @@ public class AffichageHero extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.affichage_heros);
-        //Création des objet du layout
+        //Création des objets du layout
         intelligence = (ProgressBar) findViewById(R.id.bar_intelligence);
         force = (ProgressBar) findViewById(R.id.bar_force);
         vitesse = (ProgressBar) findViewById(R.id.bar_vitesse);
@@ -35,15 +34,25 @@ public class AffichageHero extends AppCompatActivity {
         //travail = (TextView) findViewById(R.id.travail);
 
         //Execution de la requette api et prise des données du héro
-        RequetteAPI rAPI = new RequetteAPI("55");
+        RequeteAPI rAPI = new RequeteAPI();
+        rAPI.execute("56");
+
         hero = rAPI.getHero();
 
+        updateData();
+    }
+
+    public void updateData(){
         nom.setText(hero.getNom());
         nom_complet.setText(hero.getNom_complet());
+        type.setText("");
         intelligence.setProgress(hero.getIntelligence());
-        force.setProgress(55);
-        vitesse.setProgress(75);
-        pouvoir.setProgress(100);
-
+        force.setProgress(hero.getForce());
+        vitesse.setProgress(hero.getVitesse());
+        durabilite.setProgress(hero.getDurabilite());
+        pouvoir.setProgress(hero.getPouvoir());
+        combat.setProgress(hero.getCombat());
     }
+
+
 }

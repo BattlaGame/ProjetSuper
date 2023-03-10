@@ -24,7 +24,10 @@
         <activity
             android:name=".AffichageHero"
             android:exported="true">
-
+        </activity>
+        <activity
+            android:name=".AffichageHeroBis"
+            android:exported="true">
         </activity>
     </application>
 
