@@ -1,6 +1,8 @@
 package com.example.projetsuper;
 
 import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -11,12 +13,15 @@ public class AffichageHero extends AppCompatActivity {
     ProgressBar intelligence, force, vitesse, durabilite, pouvoir, combat;
     TextView nom, nom_complet, type, race_genre,editeur;
     TextView poids, taille, travail;
+    WebView image;
     Hero hero = new Hero();
+    RequeteAPI rAPI = new RequeteAPI();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.affichage_heros);
+
         //Création des objets du layout
         intelligence = (ProgressBar) findViewById(R.id.bar_intelligence);
         force = (ProgressBar) findViewById(R.id.bar_force);
@@ -33,14 +38,21 @@ public class AffichageHero extends AppCompatActivity {
         //taille = (TextView) findViewById(R.id.taille);
         //travail = (TextView) findViewById(R.id.travail);
 
+        image = (WebView) findViewById(R.id.image_perso);
+
+
+
         //Execution de la requette api et prise des données du héro
-        RequeteAPI rAPI = new RequeteAPI();
-        rAPI.execute("56");
+        rAPI.execute("300");
 
         hero = rAPI.getHero();
-
         updateData();
     }
+    public void update(View v){
+        hero = rAPI.getHero();
+        updateData();
+    }
+
 
     public void updateData(){
         nom.setText(hero.getNom());
@@ -52,6 +64,14 @@ public class AffichageHero extends AppCompatActivity {
         durabilite.setProgress(hero.getDurabilite());
         pouvoir.setProgress(hero.getPouvoir());
         combat.setProgress(hero.getCombat());
+
+        type.setText(hero.getType());
+        race_genre.setText(hero.getGenre()+" / "+hero.getRace());
+
+        image.loadUrl(hero.getImage());
+
+
+
     }
 
 

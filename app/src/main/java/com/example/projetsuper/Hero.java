@@ -33,6 +33,12 @@ public class Hero {
         this.taille = taille;
     }
     public Hero(){
+        this.intelligence = 25;
+        this.force = 25;
+        this.vitesse = 25;
+        this.durabilite = 25;
+        this.pouvoir = 25;
+        this.combat = 25;
     }
 
     public int getId() {
