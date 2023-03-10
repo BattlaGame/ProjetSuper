@@ -54,6 +54,18 @@
                 </TextView>
             </TableRow>
 
+            <TableRow>
+                <TextView
+                    android:id="@+id/taille_poids">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/travail">
+                </TextView>
+            </TableRow>
+
         </TableLayout>
 
     </TableRow>
@@ -124,5 +136,8 @@
             android:id="@+id/bar_combat"
             style="?android:attr/progressBarStyleHorizontal"/>
     </TableRow>
+
+    <Button
+        android:onClick="update"/>
 
 </TableLayout>
