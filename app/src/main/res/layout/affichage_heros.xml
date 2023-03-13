@@ -139,6 +139,7 @@
     </TableRow>
 
     <Button
-        android:onClick="update"/>
+        android:onClick="update"
+        android:text="update"/>
 
 </TableLayout>

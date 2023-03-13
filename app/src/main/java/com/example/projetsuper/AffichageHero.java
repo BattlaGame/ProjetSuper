@@ -17,6 +17,8 @@ public class AffichageHero extends AppCompatActivity {
     Hero hero = new Hero();
     RequeteAPI rAPI = new RequeteAPI();
 
+    String id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,13 +42,12 @@ public class AffichageHero extends AppCompatActivity {
 
         image = (WebView) findViewById(R.id.image_perso);
 
+        id = getIntent().getStringExtra("id");
+
 
 
         //Execution de la requette api et prise des données du héro
-        rAPI.execute("300");
-
-        hero = rAPI.getHero();
-        updateData();
+        rAPI.execute(id);
     }
     public void update(View v){
         hero = rAPI.getHero();

@@ -6,19 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1">
+        <TableRow>
+        <EditText
+            android:id="@+id/edt_id">
+        </EditText>
 
         <Button
-            android:id="@+id/button_hero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="hero"
-            android:onClick="hero">
-
+            android:id="@+id/button_id"
+            android:text="@string/recherche_id"
+            android:onClick="recherche_id">
         </Button>
-    </LinearLayout>
+
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/edt_string">
+            </EditText>
+
+            <Button
+                android:id="@+id/button_string"
+                android:text="@string/recherche_string"
+                android:onClick="recherche_string">
+            </Button>
+
+        </TableRow>
+    </TableLayout>
 
 
 
