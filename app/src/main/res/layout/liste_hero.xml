@@ -1,81 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <TextView
-        android:id="@+id/nom_hero_0"
-        android:layout_height="wrap_content"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_1"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+    <TableLayout
+        android:id="@+id/tablelayout"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1,2">
 
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_2"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_3"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_4"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_5"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/nom_hero_6"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_7"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-    <TextView
-        android:id="@+id/nom_hero_8"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:text="Nom">
-
-    </TextView>
-
+    <TableRow>
+        <TextView
+            android:gravity="center"
+            android:text="@string/titre_nom">
+        </TextView>
+        <TextView
+            android:gravity="center"
+            android:text="@string/titre_nom_complet">
+        </TextView>
+        <TextView
+            android:id="@+id/titre_button"
+            android:gravity="center"
+            android:text="@string/titre_button">
+        </TextView>
+    </TableRow>
+    </TableLayout>
+    </ScrollView>
 
 </LinearLayout>

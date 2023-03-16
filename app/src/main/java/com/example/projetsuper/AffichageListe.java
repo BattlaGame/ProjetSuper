@@ -1,10 +1,18 @@
 package com.example.projetsuper;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,8 +35,11 @@ public class AffichageListe extends AppCompatActivity {
     ArrayList<String> listeId = new ArrayList<>();
     ArrayList<String> listeNom = new ArrayList<>();
     ArrayList<String> listeNom_complet = new ArrayList<>();
+    ArrayList<Button> listeButton = new ArrayList<>();
+    TableLayout table;
+    Context context = this;
     String recherche_nom;
-    TextView nom_hero_0, nom_hero_1,nom_hero_2,nom_hero_3,nom_hero_4,nom_hero_5;
+    TextView titre_button;
     RequeteAPI rAPI = new RequeteAPI();
 
     @Override
@@ -36,16 +47,18 @@ public class AffichageListe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.liste_hero);
 
+        //
         recherche_nom = getIntent().getStringExtra("nom");
 
-        nom_hero_0 = (TextView) findViewById(R.id.nom_hero_0);
-        nom_hero_1 = (TextView) findViewById(R.id.nom_hero_1);
-        nom_hero_2 = (TextView) findViewById(R.id.nom_hero_2);
-        nom_hero_3 = (TextView) findViewById(R.id.nom_hero_3);
-        nom_hero_4 = (TextView) findViewById(R.id.nom_hero_4);
-        nom_hero_5 = (TextView) findViewById(R.id.nom_hero_5);
+        //Création des différents entités du layout
+        table = (TableLayout)findViewById(R.id.tablelayout);
+        titre_button = (TextView)findViewById(R.id.titre_button);
 
+        //Execution de la requette api
         rAPI.execute(recherche_nom);
+    }
+
+    public void clic(View v){
 
     }
 
@@ -120,16 +133,29 @@ public class AffichageListe extends AppCompatActivity {
             try {
                 JSONObject toDecode = new JSONObject(result);
                 decodeJSON(toDecode);
-                String texte = "";
+
+
+
                 for(int i = 0; i < listeId.size(); i++){
                     listeHero.add(new Hero(listeId.get(i),listeNom.get(i),listeNom_complet.get(i)));
-                     texte = texte + listeHero.get(i).getNom()+"\n";
-                }
-                nom_hero_0.setText(texte);
 
+                    TableRow row = new TableRow(context);
+                    TextView tv_nom = new TextView(context);
+                    TextView tv_nom_complet = new TextView(context);
+                    Button button = new Button(context);
+
+                    tv_nom.setText(listeHero.get(i).getNom());
+                    tv_nom_complet.setText(listeHero.get(i).getNom_complet());
+
+                    row.addView(tv_nom);
+                    row.addView(tv_nom_complet);
+                    row.addView(button);
+
+                    table.addView(row, new TableLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                }
 
             } catch (Exception e) {
-                nom_hero_1.setText("Erreur");
+                titre_button.setText("Erreur");
             }
         }
     }

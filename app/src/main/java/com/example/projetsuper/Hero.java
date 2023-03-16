@@ -94,7 +94,10 @@ public class Hero {
     }
 
     public void setNom_complet(String nom_complet) {
-        this.nom_complet = nom_complet;
+        if(nom_complet == ""){
+            this.nom_complet = "Nom complet inconnu";}
+        else {
+            this.nom_complet = nom_complet;}
     }
 
     public String getEditeur() {
@@ -110,7 +113,12 @@ public class Hero {
     }
 
     public void setType(String type) {
-        this.type = type;
+        if (type == "bad")
+            this.type = "Mauvais";
+        else if (type == "good" )
+            this.type = "Bon";
+        else
+            this.type = "Côte inconnu";
     }
 
     public String getGenre() {
@@ -118,7 +126,10 @@ public class Hero {
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        if(genre == null)
+            this.genre = "Genre inconnu";
+        else
+            this.genre = genre;
     }
 
     public String getRace() {
@@ -126,7 +137,10 @@ public class Hero {
     }
 
     public void setRace(String race) {
-        this.race = race;
+        if(race == "null")
+            this.race = "Genre inconnu";
+        else
+            this.race = race;
     }
 
     public String getTravail() {

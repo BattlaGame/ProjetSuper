@@ -44,9 +44,7 @@ public class AffichageHero extends AppCompatActivity {
 
         id = getIntent().getStringExtra("id");
 
-
-
-        //Execution de la requette api et prise des données du héro
+        //Execution de la requette api
         rAPI.execute(id);
     }
     public void update(View v){

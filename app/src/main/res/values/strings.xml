@@ -9,5 +9,8 @@
     <string name="combat">Combat</string>
     <string name="recherche_id">Rechercher avec l\'id</string>
     <string name="recherche_string">Rechercher avec le nom</string>
+    <string name="titre_nom">Nom</string>
+    <string name="titre_nom_complet">Nom Complet</string>
+    <string name="titre_button">Accèder à la \nfiche du héro</string>
 
 </resources>

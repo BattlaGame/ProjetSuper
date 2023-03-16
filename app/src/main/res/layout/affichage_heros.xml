@@ -90,8 +90,7 @@
         </TextView>
         <ProgressBar
             android:id="@+id/bar_force"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:progress="25"/>
+            style="?android:attr/progressBarStyleHorizontal"/>
     </TableRow>
 
     <TableRow
