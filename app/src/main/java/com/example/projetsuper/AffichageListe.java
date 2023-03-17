@@ -12,6 +12,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.PrecomputedTextCompat;
 import androidx.core.widget.NestedScrollView;
 
 import org.json.JSONArray;
@@ -143,6 +144,10 @@ public class AffichageListe extends AppCompatActivity {
                     TextView tv_nom = new TextView(context);
                     TextView tv_nom_complet = new TextView(context);
                     Button button = new Button(context);
+
+                    tv_nom.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
+                    tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
+                    button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
 
                     tv_nom.setText(listeHero.get(i).getNom());
                     tv_nom_complet.setText(listeHero.get(i).getNom_complet());
