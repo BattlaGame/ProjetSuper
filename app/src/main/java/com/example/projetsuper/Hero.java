@@ -1,6 +1,7 @@
 package com.example.projetsuper;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 public class Hero {
 
@@ -8,7 +9,7 @@ public class Hero {
     protected String nom;
     protected int intelligence, force, vitesse, durabilite, pouvoir, combat;
     protected String nom_complet, editeur, type, genre, race, travail, image;
-    protected JSONArray poids, taille;
+    protected String poids, taille;
 
     public Hero(String id, String nom, String nom_complet) {
         this.id = id;
@@ -159,19 +160,21 @@ public class Hero {
         this.image = image;
     }
 
-    public JSONArray getPoids() {
+    public String getPoids() {
         return poids;
     }
 
-    public void setPoids(JSONArray poids) {
-        this.poids = poids;
+    public void setPoids(JSONArray poids) throws JSONException {
+
+        this.poids = poids.getString(1);
     }
 
-    public JSONArray getTaille() {
+    public String getTaille() {
         return taille;
     }
 
-    public void setTaille(JSONArray taille) {
-        this.taille = taille;
+    public void setTaille(JSONArray taille) throws JSONException {
+
+        this.taille = taille.getString(1);
     }
 }

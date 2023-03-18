@@ -16,8 +16,7 @@
         <TextView
             android:gravity="center"
             android:text="@string/titre_nom"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
         </TextView>
         <TextView
             android:gravity="center"

@@ -2,7 +2,7 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="0,1,2">
+    android:stretchColumns="0,1">
 
     <TableRow>
     <TextView
@@ -16,11 +16,11 @@
 
     <TableRow
         android:paddingBottom="20dp">
-        <WebView
+        <ImageView
             android:id="@+id/image_perso"
             android:layout_height="350dp"
             android:layout_width="90dp">
-        </WebView>
+        </ImageView>
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -57,13 +57,13 @@
 
             <TableRow>
                 <TextView
-                    android:id="@+id/taille_poids">
+                    android:id="@+id/taille">
                 </TextView>
             </TableRow>
 
             <TableRow>
                 <TextView
-                    android:id="@+id/travail">
+                    android:id="@+id/poids">
                 </TextView>
             </TableRow>
 
@@ -136,9 +136,12 @@
             android:id="@+id/bar_combat"
             style="?android:attr/progressBarStyleHorizontal"/>
     </TableRow>
+    <TextView
+        android:id="@+id/travail"
+        android:gravity="center">
+    </TextView>
 
-    <Button
-        android:onClick="update"
-        android:text="update"/>
+
+
 
 </TableLayout>
