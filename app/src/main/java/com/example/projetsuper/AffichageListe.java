@@ -2,8 +2,10 @@ package com.example.projetsuper;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -32,6 +34,7 @@ import java.util.List;
 
 public class AffichageListe extends AppCompatActivity {
 
+    Hero hero = new Hero();
     ArrayList<Hero> listeHero = new ArrayList<>();
     ArrayList<String> listeId = new ArrayList<>();
     ArrayList<String> listeNom = new ArrayList<>();
@@ -59,18 +62,9 @@ public class AffichageListe extends AppCompatActivity {
         rAPI.execute(recherche_nom);
     }
 
-    public void clic(View v){
-
-    }
-
     public class RequeteAPI extends AsyncTask<String, Void, String> {
         // Le corps de la tâche asynchrone (exécuté en tâche de fond)
         //  lance la requète
-        Hero hero = new Hero();
-
-        public Hero getHero() {
-            return this.hero;
-        }
 
         protected String doInBackground(String... nomHero) {
             String response = requete(nomHero[0]);
@@ -123,7 +117,7 @@ public class AffichageListe extends AppCompatActivity {
                     listeNom_complet.add(jsobio.getString("full-name"));
                 }
             } else {
-                this.hero.setNom(jso.getString("error"));
+                hero.setNom(jso.getString("error"));
             }
         }
 
@@ -140,17 +134,39 @@ public class AffichageListe extends AppCompatActivity {
                 for(int i = 0; i < listeId.size(); i++){
                     listeHero.add(new Hero(listeId.get(i),listeNom.get(i),listeNom_complet.get(i)));
 
+                    //Création des objets pour les mettre dans le tableau
                     TableRow row = new TableRow(context);
                     TextView tv_nom = new TextView(context);
                     TextView tv_nom_complet = new TextView(context);
                     Button button = new Button(context);
 
+                    //Set des textes
+                    tv_nom.setText(listeHero.get(i).getNom());
+                    tv_nom_complet.setText(listeHero.get(i).getNom_complet());
+
+                    //Bouton
+                    button.setText(listeHero.get(i).getId());
+                    int id = Integer.parseInt(listeHero.get(i).getId());
+                    button.setId(id);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // La méthode onClick() personnalisée pour chaque bouton
+
+                            //récupération de l'id du héro
+                            String id = String.valueOf(v.getId());
+                            Intent ia = new Intent (AffichageListe.this, AffichageHero.class);
+                            ia.putExtra("id", id);
+                            startActivity(ia);
+                        }
+                    });
+
+                    //Création des paramètre pour les objets
                     tv_nom.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
                     tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
                     button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
 
-                    tv_nom.setText(listeHero.get(i).getNom());
-                    tv_nom_complet.setText(listeHero.get(i).getNom_complet());
+
 
                     row.addView(tv_nom);
                     row.addView(tv_nom_complet);

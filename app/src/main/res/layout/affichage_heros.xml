@@ -17,9 +17,7 @@
     <TableRow
         android:paddingBottom="20dp">
         <ImageView
-            android:id="@+id/image_perso"
-            android:layout_height="350dp"
-            android:layout_width="90dp">
+            android:id="@+id/image_perso">
         </ImageView>
 
         <TableLayout
