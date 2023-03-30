@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="0,1">
+
+        <TableRow>
+            <EditText
+                android:id="@+id/edt_id">
+            </EditText>
+            <Button
+                android:id="@+id/button_id"
+                android:text="@string/recherche_id"
+                android:onClick="recherche_id">
+            </Button>
+
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/edt_string">
+            </EditText>
+            <Button
+                android:id="@+id/button_string"
+                android:text="@string/recherche_string"
+                android:onClick="recherche_string">
+            </Button>
+
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

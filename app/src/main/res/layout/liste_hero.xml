@@ -13,11 +13,14 @@
         android:stretchColumns="0,1,2">
 
     <TableRow>
+
         <TextView
+            android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/titre_nom"
-            android:layout_weight="1">
+            android:text="@string/titre_nom">
+
         </TextView>
+
         <TextView
             android:gravity="center"
             android:text="@string/titre_nom_complet"
@@ -28,9 +31,9 @@
             android:id="@+id/titre_button"
             android:gravity="center"
             android:text="@string/titre_button"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
         </TextView>
+        <ImageView></ImageView>
     </TableRow>
     </TableLayout>
     </ScrollView>

@@ -21,18 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AffichageHero"
+        <activity android:name=".RechercheHero"
             android:exported="true">
         </activity>
         <activity
-            android:name=".AffichageHeroBis"
+            android:name=".AffichageHero"
             android:exported="true">
         </activity>
         <activity
             android:name=".AffichageListe"
             android:exported="true">
         </activity>
-    </application>
+        <activity android:name=".CreerHeroDataBase"
+            android:exported="true">
+        </activity>
 
+    </application>
 </manifest>

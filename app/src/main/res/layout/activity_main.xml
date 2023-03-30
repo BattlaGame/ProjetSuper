@@ -6,35 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TableLayout
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="0,1">
-        <TableRow>
-        <EditText
-            android:id="@+id/edt_id">
-        </EditText>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/button_id"
-            android:text="@string/recherche_id"
-            android:onClick="recherche_id">
-        </Button>
-
-        </TableRow>
-        <TableRow>
-            <EditText
-                android:id="@+id/edt_string">
-            </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <Button
-                android:id="@+id/button_string"
-                android:text="@string/recherche_string"
-                android:onClick="recherche_string">
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rechercher_hero"
+                android:onClick="recherche_hero">
             </Button>
 
-        </TableRow>
-    </TableLayout>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tierlist"
+                android:onClick="tierlist">
+            </Button>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/database"
+                android:onClick="database">
+            </Button>
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
 
 
