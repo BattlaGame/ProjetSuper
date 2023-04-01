@@ -18,14 +18,11 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/titre_nom">
-
         </TextView>
-
         <TextView
             android:gravity="center"
             android:text="@string/titre_nom_complet"
-            android:layout_weight="1"
-            >
+            android:layout_weight="1">
         </TextView>
         <TextView
             android:id="@+id/titre_button"

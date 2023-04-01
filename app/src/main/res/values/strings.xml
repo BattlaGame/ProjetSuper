@@ -12,10 +12,13 @@
     <string name="recherche_string">Rechercher avec le nom</string>
     <string name="titre_nom">Nom</string>
     <string name="titre_nom_complet">Nom Complet</string>
+    <string name="race">Race</string>
+    <string name="genre">Genre</string>
     <string name="titre_button">Accèder à la \nfiche du héro</string>
-
     <string name="rechercher_hero">Recherche Héro</string>
     <string name="tierlist">Tier List</string>
     <string name="database">DataBase</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="modifier">Modifier</string>
 
 </resources>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".CreateHeroActivity">
+    android:id="@+id/db_scrollview"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,19 +11,139 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_nom"
+            android:id="@+id/db_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nom"
-            android:inputType="textPersonName" />
+            android:hint="@string/titre_nom">
+        </EditText>
 
-        <!-- Ajoute d'autres champs pour les autres attributs d'un héros -->
+        <EditText
+            android:id="@+id/db_nom_complet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/titre_nom_complet">
+        </EditText>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1">
+
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/intelligence">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_intelligence"
+                    android:max="100"/>
+            </TableRow>
+
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/force">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_force"
+                    android:max="100"/>
+            </TableRow>
+
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/vitesse">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_vitesse"
+                    android:max="100"/>
+            </TableRow>
+
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/durabilite">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_durabilite"
+                    android:max="100"/>
+            </TableRow>
+
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/pouvoir">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_pouvoir"
+                    android:max="100"/>
+            </TableRow>
+            <TableRow
+                android:paddingBottom="10dp">
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/combat">
+                </TextView>
+                <SeekBar
+                    android:id="@+id/seekBar_combat"
+                    android:max="100"/>
+            </TableRow>
+            <TableRow>
+                <EditText
+                    android:id="@+id/db_race"
+                    android:hint="@string/race">
+                </EditText>
+                <EditText
+                    android:id="@+id/db_genre"
+                    android:hint="@string/genre">
+                </EditText>
+            </TableRow>
+        </TableLayout>
 
         <Button
-            android:id="@+id/btn_create_hero"
+            android:id="@+id/db_create_hero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Créer un héros" />
+            android:text="Créer un héro"
+            android:onClick="creerHero">
+        </Button>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Actualisation"
+            android:onClick="actualisation">
+        </Button>
+
+        <TableLayout
+            android:id="@+id/tablelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="0,1,2">
+            <TableRow>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/titre_nom">
+                </TextView>
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/titre_nom_complet"
+                    android:layout_weight="1">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/titre_button"
+                    android:gravity="center"
+                    android:text="@string/titre_button"
+                    android:layout_weight="1">
+                </TextView>
+            </TableRow>
+        </TableLayout>
     </LinearLayout>
 </ScrollView>

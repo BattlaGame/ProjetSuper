@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(ia);
     }
     public void database(View v){
-        //Intent ia = new Intent (MainActivity.this, AffichageListe.class);
-        //startActivity(ia);
+        Intent ia = new Intent (MainActivity.this, CreerHeroDataBase.class);
+        startActivity(ia);
     }
 }

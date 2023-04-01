@@ -32,7 +32,12 @@
             android:name=".AffichageListe"
             android:exported="true">
         </activity>
-        <activity android:name=".CreerHeroDataBase"
+        <activity
+            android:name=".CreerHeroDataBase"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".AffichageHeroDB"
             android:exported="true">
         </activity>
 
