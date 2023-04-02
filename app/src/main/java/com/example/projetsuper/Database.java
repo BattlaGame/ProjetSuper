@@ -23,6 +23,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String COLUMN_COMBAT = "combat";
     public static final String COLUMN_RACE = "race";
     public static final String COLUMN_GENRE = "genre";
+    public static final String COLUMN_IMAGE = "image";
 
 
     public Database(Context context) {
@@ -42,7 +43,8 @@ public class Database extends SQLiteOpenHelper {
                 + COLUMN_POUVOIR + " INTEGER,"
                 + COLUMN_COMBAT + " INTEGER,"
                 + COLUMN_RACE + " TEXT,"
-                + COLUMN_GENRE + " TEXT)";
+                + COLUMN_GENRE + " TEXT,"
+                + COLUMN_IMAGE + " TEXT)";
         db.execSQL(CREATE_HEROES_TABLE);
     }
 
@@ -70,6 +72,7 @@ public class Database extends SQLiteOpenHelper {
         values.put(COLUMN_COMBAT, hero.getCombat());
         values.put(COLUMN_RACE, hero.getRace());
         values.put(COLUMN_GENRE, hero.getGenre());
+        values.put(COLUMN_IMAGE, hero.getImage());
 
         long newRowId = db.insert(TABLE_HEROES, null, values);
         db.close();
@@ -90,7 +93,7 @@ public class Database extends SQLiteOpenHelper {
             int durabilite = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_DURABILITE)));
             int pouvoir = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_POUVOIR)));
             int combat = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_COMBAT)));
-
+            String image = cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE));
 
             Hero hero = new Hero();
             hero.setId(id);
@@ -104,6 +107,7 @@ public class Database extends SQLiteOpenHelper {
             hero.setDurabilite(durabilite);
             hero.setPouvoir(pouvoir);
             hero.setCombat(combat);
+            hero.setImage(image);
 
             cursor.close();
             db.close();

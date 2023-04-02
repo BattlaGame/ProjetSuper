@@ -33,11 +33,15 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".CreerHeroDataBase"
+            android:name=".DBMain"
             android:exported="true">
         </activity>
         <activity
-            android:name=".AffichageHeroDB"
+            android:name=".DBCreerHero"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".DBAffichageHero"
             android:exported="true">
         </activity>
 

@@ -3,7 +3,7 @@ package com.example.projetsuper;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class Hero {
+public class Herobis {
 
     protected String id;
     protected String nom;
@@ -11,12 +11,12 @@ public class Hero {
     protected String nom_complet, editeur, type, genre, race, travail, image;
     protected String poids, taille;
 
-    public Hero(String id, String nom, String nom_complet) {
+    public Herobis(String id, String nom, String nom_complet) {
         this.id = id;
         this.nom = nom;
         this.nom_complet = nom_complet;
     }
-    public Hero(){
+    public Herobis(){
         this.intelligence = 25;
         this.force = 25;
         this.vitesse = 25;
@@ -47,6 +47,7 @@ public class Hero {
     }
 
     public void setIntelligence(int intelligence) {
+
         this.intelligence = intelligence;
     }
 
@@ -106,10 +107,7 @@ public class Hero {
     }
 
     public void setEditeur(String editeur) {
-        if(!editeur.equals(""))
-            this.editeur = "Editeur inconnu";
-        else
-            this.editeur = editeur;
+        this.editeur = editeur;
     }
 
     public String getType() {

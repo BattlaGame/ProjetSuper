@@ -1,5 +1,6 @@
 package com.example.projetsuper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 
 
-public class AffichageHeroDB extends AppCompatActivity {
+public class DBAffichageHero extends AppCompatActivity {
 
     ProgressBar intelligence, force, vitesse, durabilite, pouvoir, combat;
     TextView nom, nom_complet, type, race_genre,editeur;
@@ -23,7 +24,7 @@ public class AffichageHeroDB extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.affichage_heros_db);
+        setContentView(R.layout.db_affichage_heros);
 
         //Création des objets du layout
         intelligence = (ProgressBar) findViewById(R.id.bar_intelligence);
@@ -67,7 +68,7 @@ public class AffichageHeroDB extends AppCompatActivity {
         race_genre.setText(hero.getGenre()+" / "+hero.getRace());
         taille.setText(hero.getPoids());
         poids.setText(hero.getTaille());
-        travail.setText(hero.getTravail());
+        travail.setText(hero.getImage());
 
         String url = hero.getImage();
         Glide.with(this)
@@ -83,6 +84,8 @@ public class AffichageHeroDB extends AppCompatActivity {
     public void supprimer(View v){
         Database db = new Database(this);
         db.deleteHero(id);
+        Intent ia = new Intent (DBAffichageHero.this, DBMain.class);
+        startActivity(ia);
     }
 
 

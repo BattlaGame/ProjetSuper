@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/db_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/titre_nom">
+    </EditText>
+
+    <EditText
+        android:id="@+id/db_nom_complet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/titre_nom_complet">
+    </EditText>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0,1">
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/intelligence">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_intelligence"
+                android:max="100"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/force">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_force"
+                android:max="100"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/vitesse">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_vitesse"
+                android:max="100"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/durabilite">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_durabilite"
+                android:max="100"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/pouvoir">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_pouvoir"
+                android:max="100"/>
+        </TableRow>
+        <TableRow
+            android:paddingBottom="10dp">
+            <TextView
+                android:gravity="center"
+                android:text="@string/combat">
+            </TextView>
+            <SeekBar
+                android:id="@+id/seekBar_combat"
+                android:max="100"/>
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/db_race"
+                android:hint="@string/race">
+            </EditText>
+            <EditText
+                android:id="@+id/db_genre"
+                android:hint="@string/genre">
+            </EditText>
+        </TableRow>
+    </TableLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="url de votre image dans ce format:
+        \nhttps:\/\/www.superherodb.com\/pictures2\/portraits\/10\/100\/940.jpg">
+    </TextView>
+
+    <EditText
+        android:id="@+id/db_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="url de l'image">
+
+    </EditText>
+    <Button
+        android:id="@+id/db_create_hero"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Créer un héro"
+        android:onClick="creerHero">
+    </Button>
+
+</LinearLayout>

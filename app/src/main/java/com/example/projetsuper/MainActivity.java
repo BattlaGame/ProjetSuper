@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(ia);
     }
     public void database(View v){
-        Intent ia = new Intent (MainActivity.this, CreerHeroDataBase.class);
+        Intent ia = new Intent (MainActivity.this, DBMain.class);
         startActivity(ia);
     }
 }
