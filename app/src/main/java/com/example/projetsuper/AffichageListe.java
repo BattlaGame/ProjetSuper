@@ -107,7 +107,7 @@ public class AffichageListe extends AppCompatActivity {
 
         private void decodeJSON(JSONObject jso) throws Exception {
 
-            if (true == true) {
+            if (jso.getString("response").equals("success")) {
                 JSONArray jsoliste = jso.getJSONArray("results");
                 for(int i = 0; i < jsoliste.length(); i++){
                     listeId.add(jsoliste.getJSONObject(i).getString("id"));
@@ -117,20 +117,21 @@ public class AffichageListe extends AppCompatActivity {
                     listeNom_complet.add(jsobio.getString("full-name"));
                 }
             } else {
-                hero.setNom(jso.getString("error"));
+                //si la condition n'est pas remplie alors affiche l'erreur
+                TextView erreur = new TextView(context);
+                erreur.setText(jso.getString("error"));
+                table.addView(erreur, new TableLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
         }
 
 
         // Méthode appelée lorsque la tâche de fond sera terminée
-        //  Affiche le résultat
         protected void onPostExecute(String result) {
             try {
                 JSONObject toDecode = new JSONObject(result);
                 decodeJSON(toDecode);
 
-
-
+                //Boucle for du nombre de héro qui a été récupé avec la requete
                 for(int i = 0; i < listeId.size(); i++){
                     listeHero.add(new Hero(listeId.get(i),listeNom.get(i),listeNom_complet.get(i)));
 
@@ -166,12 +167,12 @@ public class AffichageListe extends AppCompatActivity {
                     tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
                     button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
 
-
-
+                    //Ajout dans la tablerow
                     row.addView(tv_nom);
                     row.addView(tv_nom_complet);
                     row.addView(button);
 
+                    //Ajout dans la table layout
                     table.addView(row, new TableLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 }
 

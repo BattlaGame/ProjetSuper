@@ -66,6 +66,7 @@ public class AffichageHero extends AppCompatActivity {
     }
 
     public void update(){
+        //Fonction permettant de mettre à jour et d'afficher les données du héro
         nom.setText(hero.getNom());
         nom_complet.setText(hero.getNom_complet());
         type.setText("");
@@ -91,8 +92,7 @@ public class AffichageHero extends AppCompatActivity {
     }
 
     public class RequeteAPI extends AsyncTask<String, Void, String> {
-        // Le corps de la tâche asynchrone (exécuté en tâche de fond)
-        //  lance la requète
+        // Requete de l'API prennant l'id du héro en paramètre
 
         protected String doInBackground(String... idHero) {
             String response = requete(idHero[0]);
@@ -135,7 +135,10 @@ public class AffichageHero extends AppCompatActivity {
 
         private void decodeJSON(JSONObject jso) throws Exception {
 
+            //Condition pour que la récupération des données s'effectue
             if (jso.getString("response").equals("success")) {
+
+                //récupération des données en les mettant dans un objet héro
                 hero.setNom(jso.getString("name"));
 
                 JSONObject jsostats = jso.getJSONObject("powerstats");
@@ -163,17 +166,20 @@ public class AffichageHero extends AppCompatActivity {
                 JSONObject jsoimage = jso.getJSONObject("image");
                 hero.setImage(jsoimage.getString("url"));
             } else {
-                hero.setNom(jso.getString("error"));
+                //Si la condition n'est pas valide affichage de l'erreur
+                hero.setNom(jso.getString("response")+"\n"+jso.getString("error"));
+                hero.setNom_complet("Votre saisie n'est pas bonne" +
+                        "\nVeuillez mettre un id de 1 à 732");
             }
         }
 
 
         // Méthode appelée lorsque la tâche de fond sera terminée
-        //  Affiche le résultat
         protected void onPostExecute(String result) {
             try {
                 JSONObject toDecode = new JSONObject(result);
                 decodeJSON(toDecode);
+                //Fonction qui permet d'afficher avec les données du héro
                 update();
 
             } catch (Exception e) {

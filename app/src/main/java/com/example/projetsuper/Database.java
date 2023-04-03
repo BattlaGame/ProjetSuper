@@ -32,6 +32,7 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //Création de la base de donnée
         String CREATE_HEROES_TABLE = "CREATE TABLE " + TABLE_HEROES + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_NOM + " TEXT NOT NULL,"
@@ -55,11 +56,13 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void deleteHero(String id) {
+        //Fonction pour supprimer un hero de la BDD
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_HEROES, COLUMN_ID + "=?", new String[]{id});
         db.close();
     }
     public void addHero(Hero hero) {
+        //Fonction pour ajouter un héro à la BDD
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOM, hero.getNom());
@@ -79,10 +82,12 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public Hero getHeroById(String id) {
+        //Fonction pour récupérer les informations d'un héro de la BDD grâce à son id et renvoyer un héro
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_HEROES, null, COLUMN_ID + "=?", new String[]{id}, null, null, null);
-
+        
         if (cursor != null && cursor.moveToFirst()) {
+            //Récupération des données dans la BDD
             String nom = cursor.getString(cursor.getColumnIndex(COLUMN_NOM));
             String nomComplet = cursor.getString(cursor.getColumnIndex(COLUMN_NOM_COMPLET));
             String genre = cursor.getString(cursor.getColumnIndex(COLUMN_GENRE));
@@ -95,6 +100,7 @@ public class Database extends SQLiteOpenHelper {
             int combat = Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_COMBAT)));
             String image = cursor.getString(cursor.getColumnIndex(COLUMN_IMAGE));
 
+            //Création du héro
             Hero hero = new Hero();
             hero.setId(id);
             hero.setNom(nom);

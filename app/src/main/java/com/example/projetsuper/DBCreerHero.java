@@ -20,9 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DBCreerHero extends AppCompatActivity {
 
     EditText db_nom, db_nom_complet, db_race, db_genre, db_image;
-    TableLayout table;
     SQLiteDatabase db;
-    Context context = this;
     SeekBar sb_intelligence, sb_force, sb_vitesse, sb_durabilite, sb_pouvoir, sb_combat;
 
     @Override

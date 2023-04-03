@@ -2,7 +2,9 @@ package com.example.projetsuper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-
+/*
+* Classe héro correspondant à un héro soit dans l'api soit dans la base de donnée
+* avec tous ses attributs qui le compose*/
 public class Hero {
 
     protected String id;
@@ -17,13 +19,6 @@ public class Hero {
         this.nom_complet = nom_complet;
     }
     public Hero(){
-        this.intelligence = 25;
-        this.force = 25;
-        this.vitesse = 25;
-        this.durabilite = 25;
-        this.pouvoir = 25;
-        this.combat = 25;
-
     }
 
     public String getId() {
