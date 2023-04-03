@@ -135,16 +135,16 @@ public class AffichageHero extends AppCompatActivity {
 
         private void decodeJSON(JSONObject jso) throws Exception {
 
-            if (true == true) {
+            if (jso.getString("response").equals("success")) {
                 hero.setNom(jso.getString("name"));
 
                 JSONObject jsostats = jso.getJSONObject("powerstats");
-                hero.setIntelligence(jsostats.getInt("intelligence"));
-                hero.setForce(jsostats.getInt("strength"));
-                hero.setVitesse(jsostats.getInt("speed"));
-                hero.setDurabilite(jsostats.getInt("durability"));
-                hero.setPouvoir(jsostats.getInt("power"));
-                hero.setCombat(jsostats.getInt("combat"));
+                hero.setIntelligenceString(jsostats.getString("intelligence"));
+                hero.setForceString(jsostats.getString("strength"));
+                hero.setVitesseString(jsostats.getString("speed"));
+                hero.setDurabiliteString(jsostats.getString("durability"));
+                hero.setPouvoirString(jsostats.getString("power"));
+                hero.setCombatString(jsostats.getString("combat"));
 
                 JSONObject jsobio = jso.getJSONObject("biography");
                 hero.setNom_complet(jsobio.getString("full-name"));
