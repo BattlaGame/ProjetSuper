@@ -1,7 +1,10 @@
 package com.example.projetsuper;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -89,6 +92,33 @@ public class AffichageHero extends AppCompatActivity {
                 .fitCenter()
                 .into(image);
 
+    }
+
+    public void recherche_internet(View v){
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ecosia.org/search?method=index&q="+hero.getNom()));
+        startActivity(i);
+    }
+    public void recherche_hero(View v){
+
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
+
+    public void tierlist(View v){
+        //Intent ia = new Intent (this, tierlist.class);
+        //startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
     }
 
     public class RequeteAPI extends AsyncTask<String, Void, String> {

@@ -67,5 +67,27 @@ public class DBCreerHero extends AppCompatActivity {
         Intent ia = new Intent (DBCreerHero.this, DBMain.class);
         startActivity(ia);
     }
+    public void recherche_hero(View v){
+
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
+
+    public void tierlist(View v){
+        //Intent ia = new Intent (this, tierlist.class);
+        //startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
+    }
 
 }

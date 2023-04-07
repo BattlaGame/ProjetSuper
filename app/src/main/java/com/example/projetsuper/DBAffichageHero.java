@@ -77,17 +77,32 @@ public class DBAffichageHero extends AppCompatActivity {
                 .into(image);
 
     }
-
-    public void modifier(){
-
-    }
     public void supprimer(View v){
         Database db = new Database(this);
         db.deleteHero(id);
         Intent ia = new Intent (DBAffichageHero.this, DBMain.class);
         startActivity(ia);
     }
+    public void recherche_hero(View v){
 
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
 
-
+    public void tierlist(View v){
+        //Intent ia = new Intent (this, tierlist.class);
+        //startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
+    }
 }

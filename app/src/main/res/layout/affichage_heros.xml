@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="0,1">
+    <include layout="@layout/toolbar"/>
 
     <TableRow>
     <TextView
@@ -138,7 +139,11 @@
         android:id="@+id/travail"
         android:gravity="center">
     </TextView>
+    <Button
+        android:onClick="recherche_internet"
+        android:text="@string/recherche_internet">
 
+    </Button>
 
 
 

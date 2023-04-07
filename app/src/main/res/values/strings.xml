@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ProjetSuper</string>
     <string name="titre_liste">Liste des Super-héros</string>
+    <string name="affichage_hero">Affiche du héro</string>
     <string name="intelligence">Intelligence</string>
     <string name="force">Force</string>
     <string name="vitesse">Vitesse</string>
@@ -12,6 +13,7 @@
     <string name="travail">Travail :</string>
     <string name="recherche_id">Rechercher avec l\'id</string>
     <string name="recherche_string">Rechercher avec le nom</string>
+    <string name="recherche_internet">Rechercher le nom du héro sur internet</string>
     <string name="titre_nom">Nom</string>
     <string name="titre_nom_complet">Nom Complet</string>
     <string name="titre_button">Accèder à la \nfiche du héro</string>
@@ -22,5 +24,6 @@
     <string name="modifier">Modifier</string>
     <string name="creation_hero">Création d\'un héro</string>
     <string name="creation_votre_hero">Création de votre héro</string>
+    <string name="switch_parametre">Modification du thème clair/sombre</string>
 
 </resources>
