@@ -55,13 +55,13 @@ public class Parametre extends AppCompatActivity {
 
     public void showNotification() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("My Notification", "My Notification", NotificationManager.IMPORTANCE_DEFAULT);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("My Notification","My Notification", NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "My Notification");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"My Notification");
         builder.setContentTitle("Title");
         builder.setContentText("C'est le texte");
         builder.setSmallIcon(R.drawable.icone_menu);
@@ -69,17 +69,7 @@ public class Parametre extends AppCompatActivity {
 
 
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        managerCompat.notify(10, builder.build());
+        managerCompat.notify(10,builder.build());
 
     }
     public void recherche_hero(View v){
