@@ -14,10 +14,10 @@ public class TierListMain extends AppCompatActivity {
     }
 
     public void tierlist1(View v){
-
     }
     public void tierlist2(View v){
 
     }
+
 
 }
