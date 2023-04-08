@@ -36,10 +36,10 @@ class TierListImage {
     public TierListImage(final Context c)
     {
         xS=0; yS=0; // position de départ
-        xA=0; yA=256; // position de départ
-        xB=0; yB=512; // position de départ
-        xC=0; yC=768; // position de départ
-        xD=0; yD=1024; // position de départ
+        xA=0; yA=276; // position de départ
+        xB=0; yB=552; // position de départ
+        xC=0; yC=828; // position de départ
+        xD=0; yD=1104; // position de départ
         mContext=c; // sauvegarde du contexte
     }
 

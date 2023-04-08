@@ -8,10 +8,11 @@ import android.graphics.drawable.Drawable;
 
 class TierListImageHero
 {
-    int img1,img2,img3,img4,img5;
-    private BitmapDrawable img=null; // image de la balle
-    private int x,y; // coordonnées x,y de la balle en pixel
-    private int balleW, balleH; // largeur et hauteur de la balle en pixels
+    int img;
+    private BitmapDrawable imgHero=null; // image de la balle
+    private int x, y; // coordonnées x,y de la balle en pixel
+
+    private int imgW, imgH; // largeur et hauteur de la balle en pixels
     private int wEcran,hEcran; // largeur et hauteur de l'écran en pixels
     private boolean move = true; // 'true' si la balle doit se déplacer automatiquement, 'false' sinon
 
@@ -24,14 +25,11 @@ class TierListImageHero
     private final Context mContext;
 
     // Constructeur de l'objet "Balle"
-    public TierListImageHero(final Context c, int img1, int img2, int img3, int img4, int img5)
+    public TierListImageHero(final Context c, int img, int x, int y)
     {
-        this.img1 = img1;
-        this.img2 = img2;
-        this.img3 = img3;
-        this.img4 = img4;
-        this.img5 = img5;
-        x=0; y=0; // position de départ
+        this.img = img;
+        this.x = x;
+        this.y = y;// position de départ
         mContext=c; // sauvegarde du contexte
     }
 
@@ -66,39 +64,34 @@ class TierListImageHero
         hEcran=hScreen;
 
         // on définit (au choix) la taille de la balle à 1/5ème de la largeur de l'écran
-        balleW=192;
-        balleH=256;
-        img = setImage(mContext,img1,balleW,balleH);
+
+        imgH = 278;
+        imgW = 208;
+        imgHero = setImage(mContext,img,imgW,imgH);
     }
 
-    // définit la coordonnée X de la balle
     public void setX(int x) {
         this.x = x;
     }
 
-    // définit la coordonnée Y de la balle
     public void setY(int y) {
         this.y = y;
     }
 
-    // retourne la coordonnée X de la balle
     public int getX() {
         return x;
     }
 
-    // retourne la coordonnée Y de la balle
     public int getY() {
         return y;
     }
 
-    // retourne la largeur de la balle en pixel
-    public int getBalleW() {
-        return balleW;
+    public int getImgW() {
+        return imgW;
     }
 
-    // retourne la hauteur de la balle en pixel
-    public int getBalleH() {
-        return balleH;
+    public int getImgH() {
+        return imgH;
     }
 
     // déplace la balle en détectant les collisions avec les bords de l'écran
@@ -113,10 +106,10 @@ class TierListImageHero
         y+=speedY;
 
         // si x dépasse la largeur de l'écran, on inverse le déplacement
-        if(x+balleW > wEcran) {speedX=0;}
+        if(x+imgW > wEcran) {speedX=0;}
 
         // si y dépasse la hauteur l'écran, on inverse le déplacement
-        if(y+balleH > hEcran) {speedY=0;}
+        if(y+imgH > hEcran) {speedY=0;}
 
         // si x passe à gauche de l'écran, on inverse le déplacement
         if(x<0) {speedX=0;}
@@ -128,8 +121,8 @@ class TierListImageHero
     // on dessine la balle, en x et y
     public void draw(Canvas canvas)
     {
-        if(img==null) {return;}
-        canvas.drawBitmap(img.getBitmap(), x, y, null);
+        if(imgHero==null) {return;}
+        canvas.drawBitmap(imgHero.getBitmap(), x, y, null);
     }
 
 } // public class Balle

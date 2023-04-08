@@ -21,11 +21,29 @@ public class TierListMain extends AppCompatActivity {
         int img3 = R.drawable.marvel_hulk;
         int img4 = R.drawable.marvel_iron_man;
         int img5 = R.drawable.marvel_spider_man;
-        tierlistview = new TierListView(this, img1,img2,img3,img4,img5);
+        int img6 = R.drawable.marvel_ant_man;
+        int img7 = R.drawable.marvel_black_panther;
+        int img8 = R.drawable.marvel_daredevil;
+        int img9 = R.drawable.marvel_doctor_strange;
+        int img10 = R.drawable.marvel_thor;
+        tierlistview = new TierListView(this, img1,img2,img3,img4,img5,img6,img7,img8,img9,img10);
         // et on l'affiche.
         setContentView(tierlistview);
     }
     public void tierlist2(View v){
+        int img1 = R.drawable.dc_aquaman;
+        int img2 = R.drawable.dc_atom;
+        int img3 = R.drawable.dc_batman;
+        int img4 = R.drawable.dc_black_adam;
+        int img5 = R.drawable.dc_catwoman;
+        int img6 = R.drawable.dc_cyborg;
+        int img7 = R.drawable.dc_flash;
+        int img8 = R.drawable.dc_green_arrow;
+        int img9 = R.drawable.dc_wonder_woman;
+        int img10 = R.drawable.dc_superman;
+        tierlistview = new TierListView(this, img1,img2,img3,img4,img5,img6,img7,img8,img9,img10);
+        // et on l'affiche.
+        setContentView(tierlistview);
     }
 
     //Toolbar
