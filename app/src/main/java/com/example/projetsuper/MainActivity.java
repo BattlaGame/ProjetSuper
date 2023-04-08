@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
      * @param v
      */
     public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
+        Intent ia = new Intent (this, TierListMain.class);
+        startActivity(ia);
     }
     /**
      * Fonction d'un bouton de la toolbar qui envoie vers DBMain

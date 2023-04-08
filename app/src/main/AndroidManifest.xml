@@ -65,6 +65,10 @@
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".TierListView"
+            android:exported="true">
+        </activity>
 
     </application>
 </manifest>
