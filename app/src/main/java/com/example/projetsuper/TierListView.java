@@ -168,47 +168,49 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
 
             // code exécuté lorsque le doight glisse sur l'écran.
             case MotionEvent.ACTION_MOVE:
+                int decalageX = -60;
+                int decalageY = -180;
                 // on déplace la balle sous le doigt du joueur
                 // si elle est déjà sous son doigt (oui si on a setMove à false)
                 if(!hero1.isMoving()) {
-                    hero1.setX(currentX);
-                    hero1.setY(currentY);
+                    hero1.setX(currentX+decalageX);
+                    hero1.setY(currentY+decalageY);
                 }
                 if(!hero2.isMoving()) {
-                    hero2.setX(currentX);
-                    hero2.setY(currentY);
+                    hero2.setX(currentX+decalageX);
+                    hero2.setY(currentY+decalageY);
                 }
                 if(!hero3.isMoving()) {
-                    hero3.setX(currentX);
-                    hero3.setY(currentY);
+                    hero3.setX(currentX+decalageX);
+                    hero3.setY(currentY+decalageY);
                 }
                 if(!hero4.isMoving()) {
-                    hero4.setX(currentX);
-                    hero4.setY(currentY);
+                    hero4.setX(currentX+decalageX);
+                    hero4.setY(currentY+decalageY);
                 }
                 if(!hero5.isMoving()) {
-                    hero5.setX(currentX);
-                    hero5.setY(currentY);
+                    hero5.setX(currentX+decalageX);
+                    hero5.setY(currentY+decalageY);
                 }
                 if(!hero6.isMoving()) {
-                    hero6.setX(currentX);
-                    hero6.setY(currentY);
+                    hero6.setX(currentX+decalageX);
+                    hero6.setY(currentY+decalageY);
                 }
                 if(!hero7.isMoving()) {
-                    hero7.setX(currentX);
-                    hero7.setY(currentY);
+                    hero7.setX(currentX+decalageX);
+                    hero7.setY(currentY+decalageY);
                 }
                 if(!hero8.isMoving()) {
-                    hero8.setX(currentX);
-                    hero8.setY(currentY);
+                    hero8.setX(currentX+decalageX);
+                    hero8.setY(currentY+decalageY);
                 }
                 if(!hero9.isMoving()) {
-                    hero9.setX(currentX);
-                    hero9.setY(currentY);
+                    hero9.setX(currentX+decalageX);
+                    hero9.setY(currentY+decalageY);
                 }
                 if(!hero10.isMoving()) {
-                    hero10.setX(currentX);
-                    hero10.setY(currentY);
+                    hero10.setX(currentX+decalageX);
+                    hero10.setY(currentY+decalageY);
                 }
                 break;
 
