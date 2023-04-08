@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1">
+    <include layout="@layout/toolbar"/>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/titre_appli"
+            android:gravity="center"
+            android:text="@string/affichage_hero"
+            android:layout_span="2"
+            android:paddingBottom="20dp">
+        </TextView>
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="20dp">
+        <ImageView
+            android:id="@+id/image_perso">
+        </ImageView>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TableRow>
+                <TextView
+                    android:id="@+id/nom">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/nom_complet">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/type">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/race_genre">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/editeur">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/taille">
+                </TextView>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/poids">
+                </TextView>
+            </TableRow>
+
+        </TableLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/intelligence">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_intelligence"
+            style="?android:attr/progressBarStyleHorizontal" />
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/force">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_force"
+            style="?android:attr/progressBarStyleHorizontal"/>
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/vitesse">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_vitesse"
+            style="?android:attr/progressBarStyleHorizontal"/>
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/durabilite">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_durabilite"
+            style="?android:attr/progressBarStyleHorizontal"/>
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/pouvoir">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_pouvoir"
+            style="?android:attr/progressBarStyleHorizontal" />
+    </TableRow>
+
+    <TableRow
+        android:paddingBottom="10dp">
+        <TextView
+            android:gravity="center"
+            android:text="@string/combat">
+        </TextView>
+        <ProgressBar
+            android:id="@+id/bar_combat"
+            style="?android:attr/progressBarStyleHorizontal"/>
+    </TableRow>
+    <TextView
+        android:id="@+id/travail"
+        android:gravity="center">
+    </TextView>
+    <TableRow>
+        <Button
+            android:id="@+id/supprimer"
+            android:text="@string/supprimer"
+            android:onClick="supprimer"
+            android:layout_span="2">
+        </Button>
+    </TableRow>
+
+
+
+
+</TableLayout>

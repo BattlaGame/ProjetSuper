@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/db_scrollview"
+            android:padding="16dp">
+            <TableLayout
+                android:id="@+id/tablelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:stretchColumns="0,1,2">
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/titre_nom">
+                    </TextView>
+                    <TextView
+                        android:gravity="center"
+                        android:text="@string/titre_nom_complet"
+                        android:layout_weight="1">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/titre_button"
+                        android:gravity="center"
+                        android:text="@string/titre_button"
+                        android:layout_weight="1">
+                    </TextView>
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="ajouterHero"
+            android:text="@string/creation_hero">
+        </Button>
+    </LinearLayout>
+</LinearLayout>
+

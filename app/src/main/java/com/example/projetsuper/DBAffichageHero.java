@@ -1,6 +1,9 @@
 package com.example.projetsuper;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -8,6 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -53,6 +58,7 @@ public class DBAffichageHero extends AppCompatActivity {
         update();
     }
 
+
     public void update(){
         nom.setText(hero.getNom());
         nom_complet.setText(hero.getNom_complet());
@@ -80,9 +86,32 @@ public class DBAffichageHero extends AppCompatActivity {
     public void supprimer(View v){
         Database db = new Database(this);
         db.deleteHero(id);
+        notification();
         Intent ia = new Intent (DBAffichageHero.this, DBMain.class);
         startActivity(ia);
+
     }
+
+    public void notification() {
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("notif","notif", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"notif");
+        builder.setContentTitle("ProjetSuper");
+        builder.setContentText("La base de donnée a été mise à jour. Un héro a été supprimer");
+        builder.setSmallIcon(R.drawable.icone_menu);
+        builder.setAutoCancel(true);
+
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+        managerCompat.notify(1,builder.build());
+
+    }
+
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

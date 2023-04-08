@@ -31,9 +31,9 @@ public class Parametre extends AppCompatActivity {
         setContentView(R.layout.parametre);
 
         sw = (Switch) findViewById(R.id.switch1);
-        Resources resources = getResources();
+        /*Resources resources = getResources();
         boolean themeActuel = (resources != null) && (resources.getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
-        sw.setChecked(themeActuel);
+        sw.setChecked(themeActuel);*/
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -47,30 +47,6 @@ public class Parametre extends AppCompatActivity {
 
         //Ajout nom créateur donc moi et l'autre
         //le nom de l'application, la version, les droits d'auteur et les licences
-    }
-
-    public void modeAvion(View v) {
-        showNotification();
-    }
-
-    public void showNotification() {
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel channel = new NotificationChannel("My Notification","My Notification", NotificationManager.IMPORTANCE_DEFAULT);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"My Notification");
-        builder.setContentTitle("Title");
-        builder.setContentText("C'est le texte");
-        builder.setSmallIcon(R.drawable.icone_menu);
-        builder.setAutoCancel(true);
-
-
-        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
-        managerCompat.notify(10,builder.build());
-
     }
     public void recherche_hero(View v){
 

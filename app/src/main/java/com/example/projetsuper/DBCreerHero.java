@@ -1,9 +1,12 @@
 package com.example.projetsuper;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 public class DBCreerHero extends AppCompatActivity {
 
@@ -60,13 +65,35 @@ public class DBCreerHero extends AppCompatActivity {
         hero.setGenre(db_genre.getText().toString());
         hero.setImage(db_image.getText().toString());
 
-        Database dbHelper = new Database(this);
-        dbHelper.addHero(hero);
+        Database db = new Database(this);
+        db.addHero(hero);
         Toast.makeText(this, "Héros ajouté avec succès", Toast.LENGTH_SHORT).show();
 
+        notification();
         Intent ia = new Intent (DBCreerHero.this, DBMain.class);
         startActivity(ia);
+
     }
+    public void notification() {
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("notif","notif", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"notif");
+        builder.setContentTitle("ProjetSuper");
+        builder.setContentText("La base de donnée a été mise à jour. Un héro a été ajouter");
+        builder.setSmallIcon(R.drawable.icone_menu);
+        builder.setAutoCancel(true);
+
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+        managerCompat.notify(1,builder.build());
+
+    }
+
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar"/>
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:id="@+id/tablelayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1,2">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/titre_nom"
+                    android:textColor="@color/jaune_dark">
+                </TextView>
+                <TextView
+                    android:gravity="center"
+                    android:text="@string/titre_nom_complet"
+                    android:layout_weight="1"
+                    android:textColor="@color/jaune_dark">
+                </TextView>
+                <TextView
+                    android:id="@+id/titre_button"
+                    android:gravity="center"
+                    android:text="@string/titre_button"
+                    android:layout_weight="1"
+                    android:textColor="@color/jaune_dark">
+                </TextView>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</LinearLayout>
