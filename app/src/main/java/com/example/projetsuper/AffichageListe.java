@@ -192,8 +192,8 @@ public class AffichageListe extends AppCompatActivity {
         startActivity(ia);
     }
     public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
+        Intent ia = new Intent (this, TierListMain.class);
+        startActivity(ia);
     }
     public void database(View v){
         Intent ia = new Intent (this, DBMain.class);

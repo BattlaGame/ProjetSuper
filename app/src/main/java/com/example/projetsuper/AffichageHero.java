@@ -210,16 +210,15 @@ public class AffichageHero extends AppCompatActivity {
         }
     }
 
-    //ToolBar
+    //Toolbar
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);
         startActivity(ia);
     }
-
     public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
+        Intent ia = new Intent (this, TierListMain.class);
+        startActivity(ia);
     }
     public void database(View v){
         Intent ia = new Intent (this, DBMain.class);
@@ -233,6 +232,4 @@ public class AffichageHero extends AppCompatActivity {
         Intent ia = new Intent (this, Parametre.class);
         startActivity(ia);
     }
-
-
 }

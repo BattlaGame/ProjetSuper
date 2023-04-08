@@ -1,5 +1,6 @@
 package com.example.projetsuper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -25,6 +26,29 @@ public class TierListMain extends AppCompatActivity {
         setContentView(tierlistview);
     }
     public void tierlist2(View v){
+    }
+
+    //Toolbar
+    public void recherche_hero(View v){
+
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
+    public void tierlist(View v){
+        Intent ia = new Intent (this, TierListMain.class);
+        startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
     }
 
 }

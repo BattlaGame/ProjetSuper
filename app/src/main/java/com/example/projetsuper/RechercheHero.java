@@ -58,10 +58,9 @@ public class RechercheHero extends AppCompatActivity {
         Intent ia = new Intent (this, RechercheHero.class);
         startActivity(ia);
     }
-
     public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
+        Intent ia = new Intent (this, TierListMain.class);
+        startActivity(ia);
     }
     public void database(View v){
         Intent ia = new Intent (this, DBMain.class);
