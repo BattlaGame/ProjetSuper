@@ -18,8 +18,7 @@ public class Hero {
         this.nom = nom;
         this.nom_complet = nom_complet;
     }
-    public Hero(){
-    }
+    public Hero(){}
 
     public String getId() {
         return id;
@@ -72,6 +71,11 @@ public class Hero {
     public void setVitesse(int vitesse) {
         this.vitesse = vitesse;
     }
+
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param vitesse
+     */
     public void setVitesseString(String vitesse) {
         if(vitesse.equals("null"))
             this.vitesse = 0;
@@ -86,6 +90,11 @@ public class Hero {
     public void setDurabilite(int durabilite) {
         this.durabilite = durabilite;
     }
+
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param durabilite
+     */
     public void setDurabiliteString(String durabilite) {
         if(durabilite.equals("null"))
             this.durabilite = 0;
@@ -100,6 +109,11 @@ public class Hero {
     public void setPouvoir(int pouvoir) {
         this.pouvoir = pouvoir;
     }
+
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param pouvoir
+     */
     public void setPouvoirString(String pouvoir) {
         if(pouvoir.equals("null"))
             this.pouvoir = 0;
@@ -114,6 +128,11 @@ public class Hero {
     public void setCombat(int combat) {
         this.combat = combat;
     }
+
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param combat
+     */
     public void setCombatString(String combat) {
         if(combat.equals("null"))
             this.combat = 0;
@@ -125,6 +144,10 @@ public class Hero {
         return nom_complet;
     }
 
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param nom_complet
+     */
     public void setNom_complet(String nom_complet) {
         if(nom_complet.equals("")){
             this.nom_complet = "Nom complet inconnu";}
@@ -136,6 +159,10 @@ public class Hero {
         return editeur;
     }
 
+    /**
+     * Setter qui permet de mettre une valeur même si celle-ci est null
+     * @param editeur
+     */
     public void setEditeur(String editeur) {
         if(editeur.equals(""))
             this.editeur = "Editeur inconnu";
@@ -147,6 +174,10 @@ public class Hero {
         return type;
     }
 
+    /**
+     * Setter qui permet de modifier la langue ou mettre une valeur si le type est null
+     * @param type
+     */
     public void setType(String type) {
         if (type.equals("bad"))
             this.type = "Mauvais";
@@ -160,6 +191,10 @@ public class Hero {
         return genre;
     }
 
+    /**
+     * Setter qui permet de mettre une valeur si la valeur est null ou vide
+     * @param genre
+     */
     public void setGenre(String genre) {
         if(genre.equals("null"))
             this.genre = "Genre inconnu";
@@ -173,6 +208,10 @@ public class Hero {
         return race;
     }
 
+    /**
+     * Setter qui permet de mettre une valeur si la valeur est null ou vide
+     * @param race
+     */
     public void setRace(String race) {
         if(race.equals("null"))
             this.race = "Race inconnu";
@@ -202,8 +241,12 @@ public class Hero {
         return poids;
     }
 
+    /**
+     * Setter qui prend la 2e valeur de la liste de poids pour prendre le poids en "kg"
+     * @param poids
+     * @throws JSONException
+     */
     public void setPoids(JSONArray poids) throws JSONException {
-
         this.poids = poids.getString(1);
     }
 
@@ -211,8 +254,12 @@ public class Hero {
         return taille;
     }
 
+    /**
+     * Setter qui prend la 2e valeur de la liste de taille pour prendre la taille en "cm"
+     * @param taille
+     * @throws JSONException
+     */
     public void setTaille(JSONArray taille) throws JSONException {
-
         this.taille = taille.getString(1);
     }
 }

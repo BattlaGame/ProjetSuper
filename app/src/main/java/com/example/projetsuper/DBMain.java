@@ -20,6 +20,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DBMain extends AppCompatActivity {
 
     TableLayout table;
+
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,21 +74,26 @@ public class DBMain extends AppCompatActivity {
             tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
             button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
 
-
-
+            //Ajout des différents objets dans la Table Row
             row.addView(tv_nom);
             row.addView(tv_nom_complet);
             row.addView(button);
 
+            //Ajout de la Table Row dans la Table Layout
             table.addView(row, new TableLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
         }
     }
 
+    /**
+     * Fonction d'un bouton pour aller dans l'activité DBCreerHero
+     * @param v
+     */
     public void ajouterHero(View v){
         Intent ia = new Intent (DBMain.this, DBCreerHero.class);
         startActivity(ia);
     }
+
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

@@ -14,6 +14,10 @@ public class RechercheHero extends AppCompatActivity {
     EditText edt_id, edt_string;
     Button button_id, button_string;
 
+    /**
+     * Fonction onCreate qui créer les objets du layout
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,11 @@ public class RechercheHero extends AppCompatActivity {
 
     }
 
+    /**
+     * Fonction d'un bouton qui envoie vers AffichageHero
+     * en mettant la valeur d'un edit text dans l'intent
+     * @param v
+     */
     public void recherche_id(View v){
 
         Intent ia = new Intent (RechercheHero.this, AffichageHero.class);
@@ -32,11 +41,18 @@ public class RechercheHero extends AppCompatActivity {
         startActivity(ia);
     }
 
+    /**
+     * Fonction d'un bouton qui envoie vers AffichageListe
+     * en mettant la valeur d'un edit text dans l'intent
+     * @param v
+     */
     public void recherche_string(View v){
         Intent ia = new Intent (RechercheHero.this, AffichageListe.class);
         ia.putExtra("nom", edt_string.getText().toString());
         startActivity(ia);
     }
+
+    //Toolbar
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

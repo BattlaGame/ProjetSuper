@@ -38,6 +38,11 @@ public class AffichageHero extends AppCompatActivity {
 
     String id;
 
+    /**
+     * Fonction onCreate qui créer les objets du layout
+     * et execution de la requete api avec la valeur récupérer dans l'intent
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +73,12 @@ public class AffichageHero extends AppCompatActivity {
         rAPI.execute(id);
     }
 
+    /**
+     *
+     * Fonction permettant de récupérer les données du héro construit avec l'api
+     * et d'afficher les données du héro
+     */
     public void update(){
-        //Fonction permettant de mettre à jour et d'afficher les données du héro
         nom.setText(hero.getNom());
         nom_complet.setText(hero.getNom_complet());
         type.setText("");
@@ -94,33 +103,16 @@ public class AffichageHero extends AppCompatActivity {
 
     }
 
+    /**
+     * Fonction permettant de renvoyer vers une url pour faire un recherche internet
+     * avec le nom du héro
+     * @param v
+     */
     public void recherche_internet(View v){
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ecosia.org/search?method=index&q="+hero.getNom()));
         startActivity(i);
     }
-    public void recherche_hero(View v){
-
-        Intent ia = new Intent (this, RechercheHero.class);
-        startActivity(ia);
-    }
-
-    public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
-    }
-    public void database(View v){
-        Intent ia = new Intent (this, DBMain.class);
-        startActivity(ia);
-    }
-    public void menu(View v){
-        Intent ia = new Intent (this, MainActivity.class);
-        startActivity(ia);
-    }
-    public void parametre(View v){
-        Intent ia = new Intent (this, Parametre.class);
-        startActivity(ia);
-    }
-
+    
     public class RequeteAPI extends AsyncTask<String, Void, String> {
         // Requete de l'API prennant l'id du héro en paramètre
 
@@ -216,6 +208,30 @@ public class AffichageHero extends AppCompatActivity {
                 hero.setNom_complet("Erreur");
             }
         }
+    }
+
+    //ToolBar
+    public void recherche_hero(View v){
+
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
+
+    public void tierlist(View v){
+        //Intent ia = new Intent (this, tierlist.class);
+        //startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
     }
 
 

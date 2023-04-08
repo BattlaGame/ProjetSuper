@@ -1,11 +1,9 @@
 package com.example.projetsuper;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,8 +12,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.text.PrecomputedTextCompat;
-import androidx.core.widget.NestedScrollView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,22 +26,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AffichageListe extends AppCompatActivity {
 
-    Hero hero = new Hero();
     ArrayList<Hero> listeHero = new ArrayList<>();
     ArrayList<String> listeId = new ArrayList<>();
     ArrayList<String> listeNom = new ArrayList<>();
     ArrayList<String> listeNom_complet = new ArrayList<>();
-    ArrayList<Button> listeButton = new ArrayList<>();
     TableLayout table;
     Context context = this;
     String recherche_nom;
     TextView titre_button;
     RequeteAPI rAPI = new RequeteAPI();
 
+    /**
+     * Fonction onCreate qui créer les objets du layout
+     * et execution de la requete api avec la valeur récupérer dans l'intent
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,28 +58,6 @@ public class AffichageListe extends AppCompatActivity {
 
         //Execution de la requette api
         rAPI.execute(recherche_nom);
-    }
-    public void recherche_hero(View v){
-
-        Intent ia = new Intent (this, RechercheHero.class);
-        startActivity(ia);
-    }
-
-    public void tierlist(View v){
-        //Intent ia = new Intent (this, tierlist.class);
-        //startActivity(ia);
-    }
-    public void database(View v){
-        Intent ia = new Intent (this, DBMain.class);
-        startActivity(ia);
-    }
-    public void menu(View v){
-        Intent ia = new Intent (this, MainActivity.class);
-        startActivity(ia);
-    }
-    public void parametre(View v){
-        Intent ia = new Intent (this, Parametre.class);
-        startActivity(ia);
     }
 
     public class RequeteAPI extends AsyncTask<String, Void, String> {
@@ -202,5 +178,28 @@ public class AffichageListe extends AppCompatActivity {
                 titre_button.setText("Erreur");
             }
         }
+    }
+
+    //Toolbar
+    public void recherche_hero(View v){
+
+        Intent ia = new Intent (this, RechercheHero.class);
+        startActivity(ia);
+    }
+    public void tierlist(View v){
+        //Intent ia = new Intent (this, tierlist.class);
+        //startActivity(ia);
+    }
+    public void database(View v){
+        Intent ia = new Intent (this, DBMain.class);
+        startActivity(ia);
+    }
+    public void menu(View v){
+        Intent ia = new Intent (this, MainActivity.class);
+        startActivity(ia);
+    }
+    public void parametre(View v){
+        Intent ia = new Intent (this, Parametre.class);
+        startActivity(ia);
     }
 }

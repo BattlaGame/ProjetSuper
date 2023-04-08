@@ -31,10 +31,12 @@ public class Parametre extends AppCompatActivity {
         setContentView(R.layout.parametre);
 
         sw = (Switch) findViewById(R.id.switch1);
-        /*Resources resources = getResources();
-        boolean themeActuel = (resources != null) && (resources.getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
-        sw.setChecked(themeActuel);*/
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            /**
+             * Change le thème de l'application en fonction du boolean du switch
+             * @param compoundButton
+             * @param b
+             */
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
@@ -44,10 +46,9 @@ public class Parametre extends AppCompatActivity {
                 }
             }
         });
-
-        //Ajout nom créateur donc moi et l'autre
-        //le nom de l'application, la version, les droits d'auteur et les licences
     }
+
+    //ToolBar
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

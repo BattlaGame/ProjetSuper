@@ -16,24 +16,45 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    //Toolbar
+    /**
+     * Fonction d'un bouton de la toolbar qui envoie vers RechercheHero
+     * @param v
+     */
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);
         startActivity(ia);
     }
 
+    /**
+     * Fonction d'un bouton de la toolbar qui envoie vers TierList
+     * @param v
+     */
     public void tierlist(View v){
         //Intent ia = new Intent (this, tierlist.class);
         //startActivity(ia);
     }
+    /**
+     * Fonction d'un bouton de la toolbar qui envoie vers DBMain
+     * @param v
+     */
     public void database(View v){
         Intent ia = new Intent (this, DBMain.class);
         startActivity(ia);
     }
+    /**
+     * Fonction d'un bouton de la toolbar qui envoie vers MainActivity
+     * @param v
+     */
     public void menu(View v){
         Intent ia = new Intent (this, MainActivity.class);
         startActivity(ia);
     }
+    /**
+     * Fonction d'un bouton de la toolbar qui envoie vers Parametre
+     * @param v
+     */
     public void parametre(View v){
         Intent ia = new Intent (this, Parametre.class);
         startActivity(ia);

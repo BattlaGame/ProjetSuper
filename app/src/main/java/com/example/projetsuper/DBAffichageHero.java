@@ -26,6 +26,11 @@ public class DBAffichageHero extends AppCompatActivity {
     Hero hero = new Hero();
     String id;
 
+    /**
+     * Fonction onCreate qui créer les objets du layout
+     * et utilise la fonction update pour afficher les données
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +63,10 @@ public class DBAffichageHero extends AppCompatActivity {
         update();
     }
 
-
+    /**
+     * Fonction permettant de récupérer les données du héro construit avec les
+     * données de la BDD et d'afficher les données du héro
+     */
     public void update(){
         nom.setText(hero.getNom());
         nom_complet.setText(hero.getNom_complet());
@@ -83,6 +91,13 @@ public class DBAffichageHero extends AppCompatActivity {
                 .into(image);
 
     }
+
+    /**
+     * Fonction d'un bouton permettant d'appeler la methode deleteHero
+     * pour supprimer un héro de la BDD avec son id
+     * Elle renoie aussi vers la classe BDMain
+     * @param v
+     */
     public void supprimer(View v){
         Database db = new Database(this);
         db.deleteHero(id);
@@ -92,6 +107,9 @@ public class DBAffichageHero extends AppCompatActivity {
 
     }
 
+    /**
+     * Fonction qui créer un notification
+     */
     public void notification() {
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -112,12 +130,12 @@ public class DBAffichageHero extends AppCompatActivity {
 
     }
 
+    //ToolBar
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);
         startActivity(ia);
     }
-
     public void tierlist(View v){
         //Intent ia = new Intent (this, tierlist.class);
         //startActivity(ia);

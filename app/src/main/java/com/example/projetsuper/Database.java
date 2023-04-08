@@ -10,7 +10,6 @@ public class Database extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "hero.db";
     private static final int DATABASE_VERSION = 1;
-
     public static final String TABLE_HEROES = "hero";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NOM = "nom";
@@ -55,12 +54,21 @@ public class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**
+     * Fonction qui prend l'id d'un héro pour le supprimer de la BDD
+     * @param id
+     */
     public void deleteHero(String id) {
         //Fonction pour supprimer un hero de la BDD
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_HEROES, COLUMN_ID + "=?", new String[]{id});
         db.close();
     }
+
+    /**
+     * Fonction qui prend un hero en parametre pour l'ajouter à la BDD
+     * @param hero
+     */
     public void addHero(Hero hero) {
         //Fonction pour ajouter un héro à la BDD
         SQLiteDatabase db = this.getWritableDatabase();
@@ -81,6 +89,13 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * Fonction qui prend en paramètre l'id d'un héro pour
+     * récupérer toutes les données dans la BDD
+     * et renvoie le héro créé avec les données
+     * @param id
+     * @return
+     */
     public Hero getHeroById(String id) {
         //Fonction pour récupérer les informations d'un héro de la BDD grâce à son id et renvoyer un héro
         SQLiteDatabase db = this.getReadableDatabase();

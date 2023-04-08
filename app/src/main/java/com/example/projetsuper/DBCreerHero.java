@@ -28,6 +28,11 @@ public class DBCreerHero extends AppCompatActivity {
     SQLiteDatabase db;
     SeekBar sb_intelligence, sb_force, sb_vitesse, sb_durabilite, sb_pouvoir, sb_combat;
 
+    /**
+     * Fonction onCreate qui créer les différents objets
+     * du layout
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,15 @@ public class DBCreerHero extends AppCompatActivity {
         Database dbHelper = new Database(this);
         db = dbHelper.getWritableDatabase();
     }
+
+    /**
+     * Fonction d'un bouton qui permet de récupérer les données
+     * des différents objets du layout pour les mettre dans un héro
+     * et ensuite dans la BDD, utilise la méthode notification
+     * et renvoie vers la classe DBMain
+     *
+     * @param v
+     */
     public void creerHero(View v){
 
         Hero hero = new Hero();
@@ -74,6 +88,10 @@ public class DBCreerHero extends AppCompatActivity {
         startActivity(ia);
 
     }
+
+    /**
+     * Fonction qui créer un notification
+     */
     public void notification() {
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -94,6 +112,7 @@ public class DBCreerHero extends AppCompatActivity {
 
     }
 
+    //ToolBar
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);
