@@ -29,5 +29,6 @@
     <string name="creation_hero">Création d\'un héro</string>
     <string name="creation_votre_hero">Création de votre héro</string>
     <string name="switch_parametre">Modification du thème clair/sombre</string>
+    <string name="nomcreateur">© Maury Corentin, Michaud Thomas</string>
 
 </resources>
