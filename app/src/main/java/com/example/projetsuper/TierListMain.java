@@ -16,11 +16,11 @@ public class TierListMain extends AppCompatActivity {
     }
 
     public void tierlist1(View v){
-        int img1 = R.drawable.aurora;
-        int img2 = R.drawable.captaine_america;
-        int img3 = R.drawable.hulk;
-        int img4 = R.drawable.iron_man;
-        int img5 = R.drawable.spider_man;
+        int img1 = R.drawable.marvel_aurora;
+        int img2 = R.drawable.marvel_captaine_america;
+        int img3 = R.drawable.marvel_hulk;
+        int img4 = R.drawable.marvel_iron_man;
+        int img5 = R.drawable.marvel_spider_man;
         tierlistview = new TierListView(this, img1,img2,img3,img4,img5);
         // et on l'affiche.
         setContentView(tierlistview);
