@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
 
 
     <Switch
@@ -11,12 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
+        android:layout_below="@id/toolbar"
         android:text="@string/switch_parametre"/>
-    <Button
+
+    <TextView
+        android:id="@+id/nomcreateur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="modeAvion">
+        android:minHeight="48dp"
+        android:text="@string/nomcreateur"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom|right"/>
 
-    </Button>
-
-</LinearLayout>
+</RelativeLayout>
