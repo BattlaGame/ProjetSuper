@@ -15,7 +15,6 @@
     <string name="recherche_id_edittext">Mettre un nombre de 1 à 732</string>
     <string name="recherche_string">Rechercher avec le nom</string>
     <string name="recherche_string_edittext">Veuillez rentrer un nom de héro</string>
-
     <string name="recherche_button">Rechercher</string>
     <string name="recherche_internet">Rechercher le nom du héro sur internet</string>
     <string name="titre_nom">Nom</string>
@@ -30,5 +29,8 @@
     <string name="creation_votre_hero">Création de votre héro</string>
     <string name="switch_parametre">Modification du thème clair/sombre</string>
     <string name="nomcreateur">© Maury Corentin, Michaud Thomas</string>
+    <string name="tierlist1">Tierlist des héros de Marvel</string>
+    <string name="tierlist2">Tierlist des héros de DC comics</string>
+    <string name="go">GO</string>
 
 </resources>

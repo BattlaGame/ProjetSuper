@@ -1,11 +1,14 @@
 package com.example.projetsuper;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +19,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class DBMain extends AppCompatActivity {
 
@@ -25,6 +29,7 @@ public class DBMain extends AppCompatActivity {
      *
      * @param savedInstanceState
      */
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +75,13 @@ public class DBMain extends AppCompatActivity {
             });
 
             //Création des paramètre pour les objets
-            tv_nom.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
-            tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
-            button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
+            TableRow.LayoutParams parametre = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f);
+            tv_nom.setLayoutParams(parametre);
+            tv_nom_complet.setLayoutParams(parametre);
+            button.setLayoutParams(parametre);
+
+            int color = ContextCompat.getColor(this, R.color.jaune_dark);
+            button.setBackgroundColor(color);
 
             //Ajout des différents objets dans la Table Row
             row.addView(tv_nom);

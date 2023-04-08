@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1">
+    <include layout="@layout/toolbar"/>
+
+    <TableRow>
+        <TextView
+            android:text="@string/tierlist1">
+        </TextView>
+        <Button
+            android:onClick="tierlist1"
+            android:text="@string/go">
+
+        </Button>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:text="@string/tierlist2">
+        </TextView>
+        <Button
+            android:onClick="tierlist2"
+            android:text="@string/go">
+
+        </Button>
+    </TableRow>
+
+</TableLayout>

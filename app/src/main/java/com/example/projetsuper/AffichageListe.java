@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -161,9 +162,13 @@ public class AffichageListe extends AppCompatActivity {
                     });
 
                     //Création des paramètre pour les objets
-                    tv_nom.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
-                    tv_nom_complet.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
-                    button.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f));
+                    TableRow.LayoutParams parametre = new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1f);
+                    parametre.gravity = Gravity.CENTER;
+                    tv_nom.setLayoutParams(parametre);
+                    tv_nom_complet.setLayoutParams(parametre);
+                    button.setLayoutParams(parametre);
+
+
 
                     //Ajout dans la tablerow
                     row.addView(tv_nom);
