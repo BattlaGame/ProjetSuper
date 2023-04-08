@@ -183,6 +183,8 @@ public class Hero {
             this.type = "Mauvais";
         else if (type.equals("good"))
             this.type = "Bon";
+        else if (type.equals("neutral"))
+            this.type = "Neutre";
         else
             this.type = "Côte inconnu";
     }
