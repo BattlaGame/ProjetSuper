@@ -169,8 +169,8 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
 
             // code exécuté lorsque le doight glisse sur l'écran.
             case MotionEvent.ACTION_MOVE:
-                int decalageX = -60;
-                int decalageY = -180;
+                int decalageX = -hero1.getImgW()/2;
+                int decalageY = -hero1.getImgH()/2;
                 // on déplace la balle sous le doigt du joueur
                 // si elle est déjà sous son doigt (oui si on a setMove à false)
                 if(!hero1.isMoving()) {
