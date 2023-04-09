@@ -80,9 +80,6 @@ public class DBMain extends AppCompatActivity {
             tv_nom_complet.setLayoutParams(parametre);
             button.setLayoutParams(parametre);
 
-            int color = ContextCompat.getColor(this, R.color.jaune_dark);
-            button.setBackgroundColor(color);
-
             //Ajout des différents objets dans la Table Row
             row.addView(tv_nom);
             row.addView(tv_nom_complet);
