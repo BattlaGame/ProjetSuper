@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/titre_nom"
+            android:textColor="@color/black"
             android:layout_weight="1">
 
         </TextView>
@@ -27,12 +28,14 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="@string/titre_nom_complet"
+            android:textColor="@color/black"
             android:layout_weight="1">
         </TextView>
         <TextView
             android:id="@+id/titre_button"
             android:gravity="center"
             android:text="@string/titre_button"
+            android:textColor="@color/black"
             android:layout_weight="1">
         </TextView>
         <ImageView></ImageView>

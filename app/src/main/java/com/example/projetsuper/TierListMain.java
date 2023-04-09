@@ -15,6 +15,9 @@ public class TierListMain extends AppCompatActivity {
         setContentView(R.layout.tierlist_main);
     }
 
+    /**
+     * fonction qui va defenir quelle image sera affiché
+     */
     public void tierlist1(View v){
         int img1 = R.drawable.marvel_aurora;
         int img2 = R.drawable.marvel_captaine_america;
@@ -27,7 +30,6 @@ public class TierListMain extends AppCompatActivity {
         int img9 = R.drawable.marvel_doctor_strange;
         int img10 = R.drawable.marvel_thor;
         tierlistview = new TierListView(this, img1,img2,img3,img4,img5,img6,img7,img8,img9,img10);
-        // et on l'affiche.
         setContentView(tierlistview);
     }
     public void tierlist2(View v){
@@ -42,11 +44,12 @@ public class TierListMain extends AppCompatActivity {
         int img9 = R.drawable.dc_wonder_woman;
         int img10 = R.drawable.dc_superman;
         tierlistview = new TierListView(this, img1,img2,img3,img4,img5,img6,img7,img8,img9,img10);
-        // et on l'affiche.
         setContentView(tierlistview);
     }
 
-    //Toolbar
+    /**
+     * Toolbar
+     */
     public void recherche_hero(View v){
 
         Intent ia = new Intent (this, RechercheHero.class);

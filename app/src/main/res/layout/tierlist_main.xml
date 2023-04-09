@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:stretchColumns="0,1">
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar"/>
 
-    <TableRow>
+
         <TextView
+            android:id="@+id/tierlist1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:layout_below="@id/toolbar"
+            android:textStyle="bold"
+            android:gravity="center"
             android:text="@string/tierlist1">
         </TextView>
         <Button
+            android:id="@+id/Btierlist1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tierlist1"
+            android:layout_centerInParent="true"
             android:onClick="tierlist1"
             android:text="@string/go">
 
         </Button>
-    </TableRow>
-    <TableRow>
         <TextView
+            android:id="@+id/tierlist2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:layout_below="@id/Btierlist1"
+            android:textStyle="bold"
+            android:gravity="center"
             android:text="@string/tierlist2">
         </TextView>
         <Button
+            android:id="@+id/Btierlist2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tierlist2"
+            android:layout_centerInParent="true"
+
             android:onClick="tierlist2"
             android:text="@string/go">
 
         </Button>
-    </TableRow>
 
-</TableLayout>
+
+</RelativeLayout>

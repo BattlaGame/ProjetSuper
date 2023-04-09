@@ -8,31 +8,33 @@ import android.graphics.drawable.Drawable;
 
 class TierListImageHero
 {
+
+    /**
+     * Instanciation de l'image du hero et de ses coordonnées et
+     * instanciation de la taille de l'écran
+     */
     int img;
-    private BitmapDrawable imgHero=null; // image de la balle
-    private int x, y; // coordonnées x,y de la balle en pixel
+    private BitmapDrawable imgHero=null;
+    private int x, y;
 
-    private int imgW, imgH; // largeur et hauteur de la balle en pixels
-    private int wEcran,hEcran; // largeur et hauteur de l'écran en pixels
-    private boolean move = true; // 'true' si la balle doit se déplacer automatiquement, 'false' sinon
+    private int imgW, imgH;
+    private int wEcran,hEcran;
+    private boolean move = true;
 
-    // pour déplacer la balle on ajoutera INCREMENT à ses coordonnées x et y
     private static final int INCREMENT = 5;
     private int speedX=INCREMENT, speedY=INCREMENT;
 
-    // contexte de l'application Android
-    // il servira à accéder aux ressources, dont l'image de la balle
     private final Context mContext;
 
-    // Constructeur de l'objet "Balle"
     public TierListImageHero(final Context c, int img)
     {
         this.img = img;
-        mContext=c; // sauvegarde du contexte
+        mContext=c;
     }
 
-    // on attribue à l'objet "Balle" l'image passée en paramètre
-    // w et h sont sa largeur et hauteur définis en pixels
+    /**
+     * on attribue à l'objet "imgH" l'image passée en paramètre avec w et h qui sont sa taille
+     */
     public BitmapDrawable setImage(final Context c, final int ressource, final int w, final int h)
     {
         Drawable dr = c.getResources().getDrawable(ressource);
@@ -40,31 +42,23 @@ class TierListImageHero
         return new BitmapDrawable(c.getResources(), Bitmap.createScaledBitmap(bitmap, w, h, true));
     }
 
-    // retourne 'true' si la balle se déplace automatiquement
-    // 'false' sinon
-    // car on la bloque sous le doigt du joueur lorsqu'il la déplace
+    /**
+     * fonction qui nous indique si une image bouge ou non
+     */
     public boolean isMoving() {
         return move;
     }
 
-    // définit si oui ou non la balle doit se déplacer automatiquement
-    // car on la bloque sous le doigt du joueur lorsqu'il la déplace
     public void setMove(boolean move) {
         this.move = move;
     }
 
-    // redimensionnement de l'image selon la largeur/hauteur de l'écran passés en paramètre
+    /**
+     * on redimensionne l'image selon la largeur/hauteur de l'écran
+     */
     public void resize(int wScreen, int hScreen, int nb,int mb) {
-        // wScreen et hScreen sont la largeur et la hauteur de l'écran en pixel
-        // on sauve ces informations en variable globale, car elles serviront
-        // à détecter les collisions sur les bords de l'écran
         wEcran=wScreen;
         hEcran=hScreen;
-
-        // on définit (au choix) la taille de la balle à 1/5ème de la largeur de l'écran
-
-        //imgH = 278;
-        //imgW = 208;   480*640
 
         if(wScreen>(hScreen/7)*0.75*5) {
             imgH = hScreen / 7;
@@ -107,31 +101,27 @@ class TierListImageHero
         return imgH;
     }
 
-    // déplace la balle en détectant les collisions avec les bords de l'écran
+    /**
+     * fonction qui déplace la balle en détectant les bords de l'ecran
+     */
     public void moveWithCollisionDetection()
     {
-        // si on ne doit pas déplacer la balle (lorsqu'elle est sous le doigt du joueur)
-        // on quitte
         if(!move) {return;}
-
-        // on incrémente les coordonnées X et Y
         x+=speedX;
         y+=speedY;
 
-        // si x dépasse la largeur de l'écran, on inverse le déplacement
         if(x+imgW > wEcran) {speedX=0;}
 
-        // si y dépasse la hauteur l'écran, on inverse le déplacement
         if(y+imgH > hEcran) {speedY=0;}
 
-        // si x passe à gauche de l'écran, on inverse le déplacement
         if(x<0) {speedX=0;}
 
-        // si y passe à dessus de l'écran, on inverse le déplacement
         if(y<0) {speedY=0;}
     }
 
-    // on dessine la balle, en x et y
+    /**
+     * on dessine l'image avec ses coordonnées
+     */
     public void draw(Canvas canvas)
     {
         if(imgHero==null) {return;}
@@ -141,4 +131,4 @@ class TierListImageHero
         return getY()+(imgH/2);
     }
 
-} // public class Balle
+}

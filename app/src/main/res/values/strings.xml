@@ -13,8 +13,8 @@
     <string name="travail">Travail :</string>
     <string name="recherche_id">Rechercher avec l\'id</string>
     <string name="recherche_id_edittext">Mettre un nombre de 1 à 732</string>
-    <string name="recherche_string">Rechercher avec un bout du nom</string>
-    <string name="recherche_string_edittext">Veuillez rentrer un bout du nom de héro</string>
+    <string name="recherche_string">Rechercher avec une partie du nom</string>
+    <string name="recherche_string_edittext">Veuillez rentrer une partie du nom de héro</string>
     <string name="recherche_button">Rechercher</string>
     <string name="recherche_internet">Rechercher le nom du héro sur internet</string>
     <string name="titre_nom">Nom</string>

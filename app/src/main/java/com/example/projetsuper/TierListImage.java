@@ -9,33 +9,34 @@ import android.widget.ImageView;
 
 class TierListImage {
 
-    private BitmapDrawable imgS=null; // image de la balle
-    private BitmapDrawable imgA=null; // image de la balle
-    private BitmapDrawable imgB=null; // image de la balle
-    private BitmapDrawable imgC=null; // image de la balle
-    private BitmapDrawable imgD=null; // image de la balle
+    /**
+     * Instanciation des images S,A,B,C,D et de leurs coordonnées
+     */
+    private BitmapDrawable imgS=null;
+    private BitmapDrawable imgA=null;
+    private BitmapDrawable imgB=null;
+    private BitmapDrawable imgC=null;
+    private BitmapDrawable imgD=null;
 
     int W,H;
-    private int xS,yS; // coordonnées x,y de la balle en pixel
-    private int xA,yA; // coordonnées x,y de la balle en pixel
-    private int xB,yB; // coordonnées x,y de la balle en pixel
-    private int xC,yC; // coordonnées x,y de la balle en pixel
-    private int xD,yD; // coordonnées x,y de la balle en pixel
+    private int xS,yS;
+    private int xA,yA;
+    private int xB,yB;
+    private int xC,yC;
+    private int xD,yD;
 
-    // contexte de l'application Android
-    // il servira à accéder aux ressources, dont l'image de la balle
     private final Context mContext;
 
-
-    // Constructeur de l'objet "Balle"
     public TierListImage(final Context c)
     {
 
-        mContext=c; // sauvegarde du contexte
+        mContext=c;
     }
 
-    // on attribue à l'objet "Balle" l'image passée en paramètre
-    // w et h sont sa largeur et hauteur définis en pixels
+    /**
+     * on attribue à l'objet "img" l'image passée en paramètre avec w et h qui sont sa taille
+     */
+
     public BitmapDrawable setImage(final Context c, final int ressource, final int w, final int h)
     {
         Drawable dr = c.getResources().getDrawable(ressource);
@@ -43,12 +44,10 @@ class TierListImage {
         return new BitmapDrawable(c.getResources(), Bitmap.createScaledBitmap(bitmap, w, h, true));
     }
 
-    // redimensionnement de l'image selon la largeur/hauteur de l'écran passés en paramètre
+    /**
+     * on redimensionne les images selon la largeur/hauteur de l'écran
+     */
     public void resize(int wScreen, int hScreen) {
-        // on sauve ces informations en variable globale, car elles serviront
-
-        //int w = 246;
-
         W = hScreen/9;
         H = hScreen/8;
 
@@ -58,11 +57,11 @@ class TierListImage {
         imgC = setImage(mContext,R.drawable.tier_c,W,H);
         imgD = setImage(mContext,R.drawable.tier_d,W,H);
 
-        xS=0; yS=0; // position de départ
-        xA=0; yA=hScreen/7; // position de départ
-        xB=0; yB=hScreen/7*2; // position de départ
-        xC=0; yC=hScreen/7*3; // position de départ
-        xD=0; yD=hScreen/7*4; // position de départ
+        xS=0; yS=0;
+        xA=0; yA=hScreen/7;
+        xB=0; yB=hScreen/7*2;
+        xC=0; yC=hScreen/7*3;
+        xD=0; yD=hScreen/7*4;
     }
 
     public int getxS() {
@@ -145,7 +144,9 @@ class TierListImage {
         this.yD = yD;
     }
 
-    // on dessine la balle, en x et y
+    /**
+     * on dessine les images avec leurs coordonnées
+     */
     public void draw(Canvas canvas)
     {
         if(imgS==null) {return;}
@@ -156,4 +157,4 @@ class TierListImage {
         canvas.drawBitmap(imgD.getBitmap(), xD, yD, null);
     }
 
-} // public class Balle
+}

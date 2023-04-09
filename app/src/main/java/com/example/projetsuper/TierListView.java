@@ -7,26 +7,21 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-// SurfaceView est une surface de dessin.
-// référence : https://developer.android.com/reference/android/view/SurfaceView
-// SurfaceView est une surface de dessin.
-// référence : https://developer.android.com/reference/android/view/SurfaceView
 public class TierListView extends SurfaceView implements SurfaceHolder.Callback {
 
-    // déclaration de l'objet définissant la boucle principale de déplacement et de rendu
     private TierListLoopThread gameLoopThread;
     private TierListImageHero hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10;
     private TierListImage image;
     private int hEcran, wEcran;
 
-    // création de la surface de dessin
+    /**
+     * fonction qui créée la surface dessin
+     */
     public TierListView(Context context, int img1,int img2,int img3,int img4, int img5, int img6, int img7, int img8, int img9, int img10) {
         super(context);
         getHolder().addCallback(this);
         gameLoopThread = new TierListLoopThread(this);
 
-        // création d'un objet "balle", dont on définira la largeur/hauteur
-        // selon la largeur ou la hauteur de l'écran
         hero1 = new TierListImageHero(this.getContext(),img1);
         hero2 = new TierListImageHero(this.getContext(),img2);
         hero3 = new TierListImageHero(this.getContext(),img3);
@@ -40,14 +35,14 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
         image = new TierListImage(this.getContext());
     }
 
-    // Fonction qui "dessine" un écran de jeu
+    /**
+     * fonction qui dessine l'ecran d'affichage
+     */
     public void doDraw(Canvas canvas) {
         if(canvas==null) {return;}
 
-        // on efface l'écran, en blanc
         canvas.drawColor(Color.GRAY);
 
-        // on dessine la balle
         hero1.draw(canvas);
         hero2.draw(canvas);
         hero3.draw(canvas);
@@ -61,16 +56,11 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
         image.draw(canvas);
     }
 
-    // Fonction appelée par la boucle principale (gameLoopThread)
-    // On gère ici le déplacement des objets
     public void update() {
     }
 
-    // Fonction obligatoire de l'objet SurfaceView
-    // Fonction appelée immédiatement après la création de l'objet SurfaceView
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        // création du processus GameLoopThread si cela n'est pas fait
         if(gameLoopThread.getState()==Thread.State.TERMINATED) {
             gameLoopThread=new TierListLoopThread(this);
         }
@@ -78,9 +68,6 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
         gameLoopThread.start();
     }
 
-    // Fonction obligatoire de l'objet SurfaceView
-    // Fonction appelée juste avant que l'objet ne soit détruit.
-    // on tente ici de stopper le processus de gameLoopThread
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         boolean retry = true;
@@ -94,7 +81,9 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
         }
     }
 
-    // Gère les touchés sur l'écran
+    /**
+     * fonction qui gère les touches sur l'écran
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         int currentX = (int)event.getX();
@@ -102,77 +91,63 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
 
         switch (event.getAction()) {
 
-            // code exécuté lorsque le doigt touche l'écran.
             case MotionEvent.ACTION_DOWN:
-                // si le doigt touche la balle :
                 if(currentX >= hero1.getX() &&
                         currentX <= hero1.getX()+hero1.getImgW() &&
                         currentY >= hero1.getY() && currentY <= hero1.getY()+hero1.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero1.setMove(false);
                 }
                 if(currentX >= hero2.getX() &&
                         currentX <= hero2.getX()+hero2.getImgW() &&
                         currentY >= hero2.getY() && currentY <= hero2.getY()+hero2.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero2.setMove(false);
                 }
                 if(currentX >= hero3.getX() &&
                         currentX <= hero3.getX()+hero3.getImgW() &&
                         currentY >= hero3.getY() && currentY <= hero3.getY()+hero3.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero3.setMove(false);
                 }
                 if(currentX >= hero4.getX() &&
                         currentX <= hero4.getX()+hero4.getImgW() &&
                         currentY >= hero4.getY() && currentY <= hero4.getY()+hero4.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero4.setMove(false);
                 }
                 if(currentX >= hero5.getX() &&
                         currentX <= hero5.getX()+hero5.getImgW() &&
                         currentY >= hero5.getY() && currentY <= hero5.getY()+hero5.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero5.setMove(false);
                 }
                 if(currentX >= hero6.getX() &&
                         currentX <= hero6.getX()+hero6.getImgW() &&
                         currentY >= hero6.getY() && currentY <= hero6.getY()+hero6.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero6.setMove(false);
                 }
                 if(currentX >= hero7.getX() &&
                         currentX <= hero7.getX()+hero7.getImgW() &&
                         currentY >= hero7.getY() && currentY <= hero7.getY()+hero7.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero7.setMove(false);
                 }
                 if(currentX >= hero8.getX() &&
                         currentX <= hero8.getX()+hero8.getImgW() &&
                         currentY >= hero8.getY() && currentY <= hero8.getY()+hero8.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero8.setMove(false);
                 }
                 if(currentX >= hero9.getX() &&
                         currentX <= hero9.getX()+hero9.getImgW() &&
                         currentY >= hero9.getY() && currentY <= hero9.getY()+hero9.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero9.setMove(false);
                 }
                 if(currentX >= hero10.getX() &&
                         currentX <= hero10.getX()+hero10.getImgW() &&
                         currentY >= hero10.getY() && currentY <= hero10.getY()+hero10.getImgH() ) {
-                    // on arrête de déplacer la balle
                     hero10.setMove(false);
                 }
                 break;
 
-            // code exécuté lorsque le doight glisse sur l'écran.
             case MotionEvent.ACTION_MOVE:
                 int decalageX = -hero1.getImgW()/2;
                 int decalageY = -hero1.getImgH()/2;
-                // on déplace la balle sous le doigt du joueur
-                // si elle est déjà sous son doigt (oui si on a setMove à false)
+
                 if(!hero1.isMoving()) {
                     hero1.setX(currentX+decalageX);
                     hero1.setY(currentY+decalageY);
@@ -215,9 +190,7 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
                 }
                 break;
 
-            // lorsque le doigt quitte l'écran
             case MotionEvent.ACTION_UP:
-                // on reprend le déplacement de la balle
                 if(0<hero1.getCentreY() && hero1.getCentreY()<hEcran/7){
                     hero1.setY(0);
                 }
@@ -233,7 +206,6 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
                 if(hEcran/7*4<hero1.getCentreY() && hero1.getCentreY()<hEcran/7*5){
                     hero1.setY(hEcran/7*4);
                 }
-
                 if(0<hero2.getCentreY() && hero2.getCentreY()<hEcran/7){
                     hero2.setY(0);
                 }
@@ -249,7 +221,6 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
                 if(hEcran/7*4<hero2.getCentreY() && hero2.getCentreY()<hEcran/7*5){
                     hero2.setY(hEcran/7*4);
                 }
-
                 if(0<hero3.getCentreY() && hero3.getCentreY()<hEcran/7){
                     hero3.setY(0);
                 }
@@ -340,7 +311,6 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
                 if(hEcran/7*4<hero8.getCentreY() && hero8.getCentreY()<hEcran/7*5){
                     hero8.setY(hEcran/7*4);
                 }
-
                 if(0<hero9.getCentreY() && hero9.getCentreY()<hEcran/7){
                     hero9.setY(0);
                 }
@@ -383,26 +353,26 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
                 hero10.setMove(true);
         }
 
-        return true;  // On retourne "true" pour indiquer qu'on a géré l'évènement
+        return true;
     }
 
-    // Fonction obligatoire de l'objet SurfaceView
-    // Fonction appelée à la CREATION et MODIFICATION et ONRESUME de l'écran
-    // nous obtenons ici la largeur/hauteur de l'écran en pixels
+    /**
+     * qui prends la taille de l'écran
+     */
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int w, int h) {
         hEcran = h;
         wEcran = w;
-        hero1.resize(w,h,0,5); // on définit la taille de la balle selon la taille de l'écran
-        hero2.resize(w,h,1,5); // on définit la taille de la balle selon la taille de l'écran
-        hero3.resize(w,h,2,5); // on définit la taille de la balle selon la taille de l'écran
-        hero4.resize(w,h,3,5); // on définit la taille de la balle selon la taille de l'écran
-        hero5.resize(w,h,4,5); // on définit la taille de la balle selon la taille de l'écran
-        hero6.resize(w,h,0,6); // on définit la taille de la balle selon la taille de l'écran
-        hero7.resize(w,h,1,6); // on définit la taille de la balle selon la taille de l'écran
-        hero8.resize(w,h,2,6); // on définit la taille de la balle selon la taille de l'écran
-        hero9.resize(w,h,3,6); // on définit la taille de la balle selon la taille de l'écran
-        hero10.resize(w,h,4,6); // on définit la taille de la balle selon la taille de l'écran
-        image.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
+        hero1.resize(w,h,0,5);
+        hero2.resize(w,h,1,5);
+        hero3.resize(w,h,2,5);
+        hero4.resize(w,h,3,5);
+        hero5.resize(w,h,4,5);
+        hero6.resize(w,h,0,6);
+        hero7.resize(w,h,1,6);
+        hero8.resize(w,h,2,6);
+        hero9.resize(w,h,3,6);
+        hero10.resize(w,h,4,6);
+        image.resize(w,h);
     }
-} // class GameView
+}
