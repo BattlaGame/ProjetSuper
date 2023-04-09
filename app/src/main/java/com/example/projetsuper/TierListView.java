@@ -17,6 +17,7 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
     private TierListLoopThread gameLoopThread;
     private TierListImageHero hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8, hero9, hero10;
     private TierListImage image;
+    private int hEcran, wEcran;
 
     // création de la surface de dessin
     public TierListView(Context context, int img1,int img2,int img3,int img4, int img5, int img6, int img7, int img8, int img9, int img10) {
@@ -26,16 +27,16 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
 
         // création d'un objet "balle", dont on définira la largeur/hauteur
         // selon la largeur ou la hauteur de l'écran
-        hero1 = new TierListImageHero(this.getContext(),img1,256,0);
-        hero2 = new TierListImageHero(this.getContext(),img2,0,1360);
-        hero3 = new TierListImageHero(this.getContext(),img3,218,1360);
-        hero4 = new TierListImageHero(this.getContext(),img4,436,1360);
-        hero5 = new TierListImageHero(this.getContext(),img5,654,1360);
-        hero6 = new TierListImageHero(this.getContext(),img6,872,1360);
-        hero7 = new TierListImageHero(this.getContext(),img7,0,1648);
-        hero8 = new TierListImageHero(this.getContext(),img8,218,1648);
-        hero9 = new TierListImageHero(this.getContext(),img9,436,1648);
-        hero10 = new TierListImageHero(this.getContext(),img10,654,1648);
+        hero1 = new TierListImageHero(this.getContext(),img1);
+        hero2 = new TierListImageHero(this.getContext(),img2);
+        hero3 = new TierListImageHero(this.getContext(),img3);
+        hero4 = new TierListImageHero(this.getContext(),img4);
+        hero5 = new TierListImageHero(this.getContext(),img5);
+        hero6 = new TierListImageHero(this.getContext(),img6);
+        hero7 = new TierListImageHero(this.getContext(),img7);
+        hero8 = new TierListImageHero(this.getContext(),img8);
+        hero9 = new TierListImageHero(this.getContext(),img9);
+        hero10 = new TierListImageHero(this.getContext(),img10);
         image = new TierListImage(this.getContext());
     }
 
@@ -44,7 +45,7 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
         if(canvas==null) {return;}
 
         // on efface l'écran, en blanc
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.GRAY);
 
         // on dessine la balle
         hero1.draw(canvas);
@@ -217,6 +218,159 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
             // lorsque le doigt quitte l'écran
             case MotionEvent.ACTION_UP:
                 // on reprend le déplacement de la balle
+                if(0<hero1.getCentreY() && hero1.getCentreY()<hEcran/7){
+                    hero1.setY(0);
+                }
+                if(hEcran/7<hero1.getCentreY() && hero1.getCentreY()<hEcran/7*2){
+                    hero1.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero1.getCentreY() && hero1.getCentreY()<hEcran/7*3){
+                    hero1.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero1.getCentreY() && hero1.getCentreY()<hEcran/7*4){
+                    hero1.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero1.getCentreY() && hero1.getCentreY()<hEcran/7*5){
+                    hero1.setY(hEcran/7*4);
+                }
+
+                if(0<hero2.getCentreY() && hero2.getCentreY()<hEcran/7){
+                    hero2.setY(0);
+                }
+                if(hEcran/7<hero2.getCentreY() && hero2.getCentreY()<hEcran/7*2){
+                    hero2.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero2.getCentreY() && hero2.getCentreY()<hEcran/7*3){
+                    hero2.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero2.getCentreY() && hero2.getCentreY()<hEcran/7*4){
+                    hero2.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero2.getCentreY() && hero2.getCentreY()<hEcran/7*5){
+                    hero2.setY(hEcran/7*4);
+                }
+
+                if(0<hero3.getCentreY() && hero3.getCentreY()<hEcran/7){
+                    hero3.setY(0);
+                }
+                if(hEcran/7<hero3.getCentreY() && hero3.getCentreY()<hEcran/7*2){
+                    hero3.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero3.getCentreY() && hero3.getCentreY()<hEcran/7*3){
+                    hero3.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero3.getCentreY() && hero3.getCentreY()<hEcran/7*4){
+                    hero3.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero3.getCentreY() && hero3.getCentreY()<hEcran/7*5){
+                    hero3.setY(hEcran/7*4);
+                }
+                if(0<hero4.getCentreY() && hero4.getCentreY()<hEcran/7){
+                    hero4.setY(0);
+                }
+                if(hEcran/7<hero4.getCentreY() && hero4.getCentreY()<hEcran/7*2){
+                    hero4.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero4.getCentreY() && hero4.getCentreY()<hEcran/7*3){
+                    hero4.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero4.getCentreY() && hero4.getCentreY()<hEcran/7*4){
+                    hero4.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero4.getCentreY() && hero4.getCentreY()<hEcran/7*5){
+                    hero4.setY(hEcran/7*4);
+                }
+                if(0<hero5.getCentreY() && hero5.getCentreY()<hEcran/7){
+                    hero5.setY(0);
+                }
+                if(hEcran/7<hero5.getCentreY() && hero5.getCentreY()<hEcran/7*2){
+                    hero5.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero5.getCentreY() && hero5.getCentreY()<hEcran/7*3){
+                    hero5.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero5.getCentreY() && hero5.getCentreY()<hEcran/7*4){
+                    hero5.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero5.getCentreY() && hero5.getCentreY()<hEcran/7*5){
+                    hero5.setY(hEcran/7*4);
+                }
+                if(0<hero6.getCentreY() && hero6.getCentreY()<hEcran/7){
+                    hero6.setY(0);
+                }
+                if(hEcran/7<hero6.getCentreY() && hero6.getCentreY()<hEcran/7*2){
+                    hero6.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero6.getCentreY() && hero6.getCentreY()<hEcran/7*3){
+                    hero6.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero6.getCentreY() && hero6.getCentreY()<hEcran/7*4){
+                    hero6.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero6.getCentreY() && hero6.getCentreY()<hEcran/7*5){
+                    hero6.setY(hEcran/7*4);
+                }
+                if(0<hero7.getCentreY() && hero7.getCentreY()<hEcran/7){
+                    hero7.setY(0);
+                }
+                if(hEcran/7<hero7.getCentreY() && hero7.getCentreY()<hEcran/7*2){
+                    hero7.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero7.getCentreY() && hero7.getCentreY()<hEcran/7*3){
+                    hero7.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero7.getCentreY() && hero7.getCentreY()<hEcran/7*4){
+                    hero7.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero7.getCentreY() && hero7.getCentreY()<hEcran/7*5){
+                    hero7.setY(hEcran/7*4);
+                }
+                if(0<hero8.getCentreY() && hero8.getCentreY()<hEcran/7){
+                    hero8.setY(0);
+                }
+                if(hEcran/7<hero8.getCentreY() && hero8.getCentreY()<hEcran/7*2){
+                    hero8.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero8.getCentreY() && hero8.getCentreY()<hEcran/7*3){
+                    hero8.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero8.getCentreY() && hero8.getCentreY()<hEcran/7*4){
+                    hero8.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero8.getCentreY() && hero8.getCentreY()<hEcran/7*5){
+                    hero8.setY(hEcran/7*4);
+                }
+
+                if(0<hero9.getCentreY() && hero9.getCentreY()<hEcran/7){
+                    hero9.setY(0);
+                }
+                if(hEcran/7<hero9.getCentreY() && hero9.getCentreY()<hEcran/7*2){
+                    hero9.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero9.getCentreY() && hero9.getCentreY()<hEcran/7*3){
+                    hero9.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero9.getCentreY() && hero9.getCentreY()<hEcran/7*4){
+                    hero9.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero9.getCentreY() && hero9.getCentreY()<hEcran/7*5){
+                    hero9.setY(hEcran/7*4);
+                }
+                if(0<hero10.getCentreY() && hero10.getCentreY()<hEcran/7){
+                    hero10.setY(0);
+                }
+                if(hEcran/7<hero10.getCentreY() && hero10.getCentreY()<hEcran/7*2){
+                    hero10.setY(hEcran/7);
+                }
+                if(hEcran/7*2<hero10.getCentreY() && hero10.getCentreY()<hEcran/7*3){
+                    hero10.setY(hEcran/7*2);
+                }
+                if(hEcran/7*3<hero10.getCentreY() && hero10.getCentreY()<hEcran/7*4){
+                    hero10.setY(hEcran/7*3);
+                }
+                if(hEcran/7*4<hero10.getCentreY() && hero10.getCentreY()<hEcran/7*5){
+                    hero10.setY(hEcran/7*4);
+                }
                 hero1.setMove(true);
                 hero2.setMove(true);
                 hero3.setMove(true);
@@ -237,16 +391,18 @@ public class TierListView extends SurfaceView implements SurfaceHolder.Callback 
     // nous obtenons ici la largeur/hauteur de l'écran en pixels
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int w, int h) {
-        hero1.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero2.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero3.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero4.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero5.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero6.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero7.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero8.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero9.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
-        hero10.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
+        hEcran = h;
+        wEcran = w;
+        hero1.resize(w,h,0,5); // on définit la taille de la balle selon la taille de l'écran
+        hero2.resize(w,h,1,5); // on définit la taille de la balle selon la taille de l'écran
+        hero3.resize(w,h,2,5); // on définit la taille de la balle selon la taille de l'écran
+        hero4.resize(w,h,3,5); // on définit la taille de la balle selon la taille de l'écran
+        hero5.resize(w,h,4,5); // on définit la taille de la balle selon la taille de l'écran
+        hero6.resize(w,h,0,6); // on définit la taille de la balle selon la taille de l'écran
+        hero7.resize(w,h,1,6); // on définit la taille de la balle selon la taille de l'écran
+        hero8.resize(w,h,2,6); // on définit la taille de la balle selon la taille de l'écran
+        hero9.resize(w,h,3,6); // on définit la taille de la balle selon la taille de l'écran
+        hero10.resize(w,h,4,6); // on définit la taille de la balle selon la taille de l'écran
         image.resize(w,h); // on définit la taille de la balle selon la taille de l'écran
     }
 } // class GameView

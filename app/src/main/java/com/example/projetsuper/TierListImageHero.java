@@ -25,11 +25,9 @@ class TierListImageHero
     private final Context mContext;
 
     // Constructeur de l'objet "Balle"
-    public TierListImageHero(final Context c, int img, int x, int y)
+    public TierListImageHero(final Context c, int img)
     {
         this.img = img;
-        this.x = x;
-        this.y = y;// position de départ
         mContext=c; // sauvegarde du contexte
     }
 
@@ -56,7 +54,7 @@ class TierListImageHero
     }
 
     // redimensionnement de l'image selon la largeur/hauteur de l'écran passés en paramètre
-    public void resize(int wScreen, int hScreen) {
+    public void resize(int wScreen, int hScreen, int nb,int mb) {
         // wScreen et hScreen sont la largeur et la hauteur de l'écran en pixel
         // on sauve ces informations en variable globale, car elles serviront
         // à détecter les collisions sur les bords de l'écran
@@ -65,8 +63,23 @@ class TierListImageHero
 
         // on définit (au choix) la taille de la balle à 1/5ème de la largeur de l'écran
 
-        imgH = 278;
-        imgW = 208;
+        //imgH = 278;
+        //imgW = 208;   480*640
+
+        if(wScreen>(hScreen/7)*0.75*5) {
+            imgH = hScreen / 7;
+            imgW = (int) (imgH * 0.75);
+        }
+        else {
+            imgW = wScreen/5;
+            imgH = (int) (imgW*1.33);
+        }
+
+
+        int H = hScreen/7;
+        int W = wScreen/5;
+        x = W*nb;
+        y = H*mb;
         imgHero = setImage(mContext,img,imgW,imgH);
     }
 
@@ -123,6 +136,9 @@ class TierListImageHero
     {
         if(imgHero==null) {return;}
         canvas.drawBitmap(imgHero.getBitmap(), x, y, null);
+    }
+    public int getCentreY(){
+        return getY()+(imgH/2);
     }
 
 } // public class Balle

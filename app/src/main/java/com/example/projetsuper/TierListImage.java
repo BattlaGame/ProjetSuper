@@ -15,17 +15,12 @@ class TierListImage {
     private BitmapDrawable imgC=null; // image de la balle
     private BitmapDrawable imgD=null; // image de la balle
 
+    int W,H;
     private int xS,yS; // coordonnées x,y de la balle en pixel
     private int xA,yA; // coordonnées x,y de la balle en pixel
     private int xB,yB; // coordonnées x,y de la balle en pixel
     private int xC,yC; // coordonnées x,y de la balle en pixel
     private int xD,yD; // coordonnées x,y de la balle en pixel
-
-    private int SW, SH; // largeur et hauteur de la balle en pixels
-    private int AW, AH; // largeur et hauteur de la balle en pixels
-    private int BW, BH; // largeur et hauteur de la balle en pixels
-    private int CW, CH; // largeur et hauteur de la balle en pixels
-    private int DW, DH; // largeur et hauteur de la balle en pixels
 
     // contexte de l'application Android
     // il servira à accéder aux ressources, dont l'image de la balle
@@ -35,11 +30,7 @@ class TierListImage {
     // Constructeur de l'objet "Balle"
     public TierListImage(final Context c)
     {
-        xS=0; yS=0; // position de départ
-        xA=0; yA=276; // position de départ
-        xB=0; yB=552; // position de départ
-        xC=0; yC=828; // position de départ
-        xD=0; yD=1104; // position de départ
+
         mContext=c; // sauvegarde du contexte
     }
 
@@ -56,11 +47,22 @@ class TierListImage {
     public void resize(int wScreen, int hScreen) {
         // on sauve ces informations en variable globale, car elles serviront
 
-        imgS = setImage(mContext,R.drawable.tier_s,246,246);
-        imgA = setImage(mContext,R.drawable.tier_a,246,246);
-        imgB = setImage(mContext,R.drawable.tier_b,246,246);
-        imgC = setImage(mContext,R.drawable.tier_c,246,246);
-        imgD = setImage(mContext,R.drawable.tier_d,246,246);
+        //int w = 246;
+
+        W = hScreen/9;
+        H = hScreen/8;
+
+        imgS = setImage(mContext,R.drawable.tier_s,W,H);
+        imgA = setImage(mContext,R.drawable.tier_a,W,H);
+        imgB = setImage(mContext,R.drawable.tier_b,W,H);
+        imgC = setImage(mContext,R.drawable.tier_c,W,H);
+        imgD = setImage(mContext,R.drawable.tier_d,W,H);
+
+        xS=0; yS=0; // position de départ
+        xA=0; yA=hScreen/7; // position de départ
+        xB=0; yB=hScreen/7*2; // position de départ
+        xC=0; yC=hScreen/7*3; // position de départ
+        xD=0; yD=hScreen/7*4; // position de départ
     }
 
     public int getxS() {
